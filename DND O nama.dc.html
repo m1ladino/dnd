@@ -343,7 +343,7 @@ a:hover{color:var(--c-secondary)}
 </sc-if>
 
 <sc-if value="{{ showCookie }}" hint-placeholder-val="{{ false }}">
-  <div role="dialog" aria-label="Kolačići" style="position:fixed;z-index:80;left:16px;right:16px;bottom:{{ cookieBottom }};max-width:560px;background:var(--c-primary);border:1px solid var(--c-line);border-radius:12px;box-shadow:0 16px 40px rgba(47,49,53,0.18);padding:20px;display:flex;flex-direction:column;gap:16px">
+  <div role="dialog" aria-label="Kolačići" style="position:fixed;z-index:80;left:0;right:0;bottom:{{ cookieBottom }};margin:0 auto;width:calc(100% - 32px);max-width:560px;box-sizing:border-box;background:var(--c-primary);border:1px solid var(--c-line);border-radius:12px;box-shadow:0 16px 40px rgba(47,49,53,0.18);padding:20px;display:flex;flex-direction:column;gap:16px">
     <div style="display:flex;flex-direction:column;gap:4px">
       <h2 style="margin:0;font-size:16px;font-weight:700">Kolačići</h2>
       <p style="margin:0;font-size:16px;line-height:1.55;color:var(--c-muted)">Analitiku i Google mapu učitavamo samo uz Vaš pristanak. Bez pristanka sajt radi normalno. Više u <a href="#">politici privatnosti</a>.</p>
