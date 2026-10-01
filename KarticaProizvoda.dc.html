@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<article style="display:flex;flex-direction:column;gap:12px;min-width:0;height:100%">
+  <a href="{{ p.href }}" aria-label="{{ p.name }}" style="position:relative;display:block;aspect-ratio:1 / 1;border-radius:16px;background:var(--c-surface);overflow:hidden;color:var(--c-secondary);text-decoration:none;transition:background-color .25s ease" style-hover="background:#ECECE9;color:var(--c-secondary-strong)">
+    <sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}">
+      {{ p.imgEl }}
+    </sc-if>
+    <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}">
+      <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><i class="ph-duotone {{ p.icon }}" style="font-size:clamp(44px,7vw,72px)"></i></span>
+    </sc-if>
+    <sc-if value="{{ p.isNew }}" hint-placeholder-val="{{ false }}">
+      <span style="position:absolute;top:10px;left:10px;height:24px;padding:0 8px;border-radius:6px;background:var(--c-tertiary);color:var(--c-secondary-strong);font-size:12px;font-weight:800;display:flex;align-items:center">Novo</span>
+    </sc-if>
+  </a>
+  <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0">
+    <span style="font-size:13px;font-weight:600;line-height:1.4;color:var(--c-muted)">{{ p.subName }}</span>
+    <a href="{{ p.href }}" style="font-size:clamp(15px,1.3vw,16px);font-weight:700;line-height:1.35;color:var(--c-text);text-decoration:none;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-wrap:pretty;transition:color .25s ease" style-hover="color:var(--c-secondary)">{{ p.name }}</a>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+    <span style="display:flex;align-items:center;gap:6px;min-width:0;font-size:13px;font-weight:600;line-height:1.4;color:var(--c-text)"><span style="width:8px;height:8px;flex:none;border-radius:50%;background:{{ p.stockDot }}"></span>{{ p.stockLabel }}</span>
+    <button onClick="{{ p.add }}" aria-label="{{ p.addLabel }}" style="flex:none;width:44px;height:44px;border:0;border-radius:10px;background:{{ p.addBg }};color:{{ p.addColor }};display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .25s ease,transform .2s ease" style-hover="transform:translateY(-2px)"><i class="ph-bold {{ p.addIcon }}" style="font-size:18px"></i></button>
+  </div>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:280,&quot;height&quot;:440},&quot;p&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;object&quot;}}"></script>
+</body>
+</html>

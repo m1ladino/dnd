@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Pošaljite upit | DND zaštita na radu</title>
+<meta name="description" content="Zakažite besplatne konsultacije ili pošaljite upit za opremu iz korpe. DND zaštita na radu, Zrenjanin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://unpkg.com" crossorigin="anonymous">
+<style>
+html{background:#FFFFFF;scrollbar-gutter:stable;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{overflow-x:clip}
+img,video{max-width:100%}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+@keyframes dndGearIn{0%{opacity:0;transform:translateY(12px) scale(.8) rotate(-8deg)}60%{opacity:1;transform:translateY(-2px) scale(1.04) rotate(2deg)}100%{opacity:1;transform:none}}
+@keyframes dndGearLbl{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.dnd-gear *{animation:none!important}}
+:root{--c-primary:#FFFFFF;--c-secondary:#4A4D52;--c-secondary-strong:#2F3135;--c-tertiary:#FFC000;--c-tertiary-strong:#E6AC00;--c-tertiary-soft:#FFF5D1;--c-surface:#F5F5F3;--c-line:#E4E4E1;--c-line-strong:#C9CAC6;--c-text:#2F3135;--c-muted:#5C5F64;--c-on-dark:#FFFFFF;--c-on-dark-muted:#D5D6D8;--c-error:#B42318;--c-error-soft:#FDECEA;--c-success:#1E7B45;--c-success-soft:#E6F4EC}
+body{margin:0;background:var(--c-surface);color:var(--c-text);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--c-secondary-strong)}
+a:hover{color:var(--c-secondary)}
+:focus-visible{outline:2px solid var(--c-secondary-strong);outline-offset:3px}
+</style>
+</helmet>
+
+<div lang="sr-Latn" style="min-height:100vh;background:var(--c-surface);display:flex;flex-direction:column">
+
+<header data-screen-label="Heder" style="position:sticky;top:0;z-index:50;background:var(--c-primary);border-bottom:1px solid var(--c-line)">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href="DND Pocetna.dc.html" aria-label="DND zaštita na radu, početna" style="display:flex;align-items:center;text-decoration:none">
+      <img src="assets/dnd-logo-sm.png" alt="DND" width="86" height="56" decoding="async" style="height:56px;width:auto;display:block">
+    </a>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="tel:+381637769518" aria-label="Pozovite 063 776 9518" style="width:44px;height:44px;border:1px solid var(--c-line);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--c-text)" style-hover="border-color:var(--c-line-strong)"><i class="ph ph-phone" style="font-size:20px"></i></a>
+      <span aria-label="Korpa za upit, {{ cartCount }} stavki" style="position:relative;width:44px;height:44px;border:1px solid var(--c-line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--c-text)">
+        <i class="ph ph-basket" style="font-size:20px"></i>
+        <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 4px;border-radius:8px;background:var(--c-tertiary);color:var(--c-secondary-strong);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></sc-if>
+      </span>
+    </div>
+  </div>
+</header>
+
+<main data-screen-label="01 Upit" style="flex:1;padding:24px 0 64px">
+  <div style="max-width:1040px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:20px">
+    <nav aria-label="Putanja" style="display:{{ crumbDisplay }};align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--c-muted)">
+      <sc-if value="{{ fromSub }}" hint-placeholder-val="{{ false }}"><a href="DND Pocetna.dc.html" style="color:var(--c-muted);text-decoration:none" style-hover="color:var(--c-text)">Početna</a><i class="ph ph-caret-right" style="font-size:16px"></i></sc-if>
+      <button onClick="{{ goBack }}" style="padding:0;border:0;background:transparent;font:inherit;color:var(--c-muted);cursor:pointer" style-hover="color:var(--c-text)">{{ backPage }}</button><i class="ph ph-caret-right" style="font-size:16px"></i><span style="color:var(--c-text);font-weight:700">Upit</span></nav>
+
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+      <section aria-labelledby="forma-h" style="flex:1 1 480px;min-width:0;background:var(--c-primary);border-radius:20px;padding:clamp(24px,3.5vw,40px);display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <h1 id="forma-h" style="margin:0;font-weight:800;font-size:28px;line-height:1.2;letter-spacing:-0.02em">{{ title }}</h1>
+          <p style="margin:0;font-size:16px;color:var(--c-muted);text-wrap:pretty;display:{{ subDisplay }}">{{ subtitle }}</p>
+        </div>
+
+
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" noValidate="{{ true }}" style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800"><span style="width:24px;height:24px;border-radius:50%;background:var(--c-secondary);color:var(--c-on-dark);font-size:12px;display:flex;align-items:center;justify-content:center">1</span>Šta Vas zanima<span style="font-size:12px;font-weight:600;color:var(--c-muted);display:{{ multiDisplay }}">· možete izabrati više</span></span>
+              <div style="display:{{ chipDisp }};grid-template-columns:repeat(2,minmax(0,1fr));flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ serviceOptions }}" as="o" hint-placeholder-count="8">
+                  <button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.active }}" style="min-height:{{ chipH }};padding:{{ chipPad }};flex:none;display:flex;align-items:center;justify-content:{{ chipJust }};gap:6px;white-space:{{ chipWs }};text-align:left;line-height:1.25;border-radius:{{ chipR }};border:0;background:{{ o.bg }};color:{{ o.color }};font:inherit;font-size:{{ chipFs }};font-weight:700;cursor:pointer" style-hover="box-shadow:inset 0 0 0 1.5px var(--c-secondary)">{{ o.name }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div style="height:1px;background:var(--c-line);display:{{ sepDisplay }}"></div>
+            <span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800"><span style="width:24px;height:24px;border-radius:50%;background:var(--c-secondary);color:var(--c-on-dark);font-size:12px;display:flex;align-items:center;justify-content:center">2</span>Vaši podaci</span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;color:var(--c-text)"><span>Ime i prezime *</span>
+              <input value="{{ f.ime }}" onChange="{{ setIme }}" autocomplete="name" aria-invalid="{{ e.imeInvalid }}" style="height:48px;padding:0 16px;border-radius:12px;border:1.5px solid {{ e.imeBorder }};background:var(--c-surface);font:inherit;font-size:16px;font-weight:500;color:var(--c-text);outline:none" style-focus="border-color:var(--c-tertiary);background:var(--c-primary);box-shadow:0 0 0 4px rgba(255,192,0,0.2)">
+              <sc-if value="{{ e.ime }}" hint-placeholder-val="{{ false }}"><span style="color:var(--c-error);font-weight:600">{{ e.ime }}</span></sc-if>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;color:var(--c-text)"><span>Firma</span>
+              <input value="{{ f.firma }}" onChange="{{ setFirma }}" autocomplete="organization" style="height:48px;padding:0 16px;border-radius:12px;border:1.5px solid transparent;background:var(--c-surface);font:inherit;font-size:16px;font-weight:500;color:var(--c-text);outline:none" style-focus="border-color:var(--c-tertiary);background:var(--c-primary);box-shadow:0 0 0 4px rgba(255,192,0,0.2)">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;color:var(--c-text)"><span>Telefon *</span>
+              <input value="{{ f.tel }}" onChange="{{ setTel }}" type="tel" autocomplete="tel" aria-invalid="{{ e.telInvalid }}" style="height:48px;padding:0 16px;border-radius:12px;border:1.5px solid {{ e.telBorder }};background:var(--c-surface);font:inherit;font-size:16px;font-weight:500;color:var(--c-text);outline:none" style-focus="border-color:var(--c-tertiary);background:var(--c-primary);box-shadow:0 0 0 4px rgba(255,192,0,0.2)">
+              <sc-if value="{{ e.tel }}" hint-placeholder-val="{{ false }}"><span style="color:var(--c-error);font-weight:600">{{ e.tel }}</span></sc-if>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;color:var(--c-text)"><span>Email *</span>
+              <input value="{{ f.email }}" onChange="{{ setEmail }}" type="email" autocomplete="email" aria-invalid="{{ e.emailInvalid }}" style="height:48px;padding:0 16px;border-radius:12px;border:1.5px solid {{ e.emailBorder }};background:var(--c-surface);font:inherit;font-size:16px;font-weight:500;color:var(--c-text);outline:none" style-focus="border-color:var(--c-tertiary);background:var(--c-primary);box-shadow:0 0 0 4px rgba(255,192,0,0.2)">
+              <sc-if value="{{ e.email }}" hint-placeholder-val="{{ false }}"><span style="color:var(--c-error);font-weight:600">{{ e.email }}</span></sc-if>
+            </label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;color:var(--c-text)"><span>Poruka</span>
+              <textarea value="{{ f.poruka }}" onChange="{{ setPoruka }}" rows="3" placeholder="{{ msgPlaceholder }}" style="padding:12px 16px;border-radius:12px;border:1.5px solid transparent;background:var(--c-surface);font:inherit;font-size:16px;font-weight:500;color:var(--c-text);resize:vertical;outline:none" style-focus="border-color:var(--c-tertiary);background:var(--c-primary);box-shadow:0 0 0 4px rgba(255,192,0,0.2)"></textarea>
+            </label>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <label style="position:relative;display:flex;gap:12px;align-items:center;font-size:12px;line-height:1.5;color:var(--c-muted);cursor:pointer">
+                <input type="checkbox" checked="{{ f.ok }}" onChange="{{ setOk }}" style="position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none">
+                <span aria-hidden="true" style="width:22px;height:22px;flex:none;border-radius:50%;border:1.5px solid {{ okBox.border }};background:{{ okBox.bg }};display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s">
+                  <sc-if value="{{ f.ok }}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="display:block"><path d="M2.5 6.2 5 8.6 9.5 3.6" stroke="#2F3135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+                </span>
+                <span>Saglasan/na sam sa obradom podataka radi odgovora na upit, u skladu sa <a href="#">politikom privatnosti</a>.</span>
+              </label>
+              <sc-if value="{{ e.ok }}" hint-placeholder-val="{{ false }}"><span style="color:var(--c-error);font-weight:600;font-size:12px">{{ e.ok }}</span></sc-if>
+            </div>
+            <button type="submit" style="align-self:stretch;height:52px;padding:0 24px;border:0;border-radius:12px;justify-content:center;background:var(--c-tertiary);color:var(--c-secondary-strong);font:inherit;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;cursor:pointer" style-hover="background:var(--c-tertiary-strong)">{{ submitLabel }}<i class="ph ph-arrow-right"></i></button>
+          </form>
+        </sc-if>
+      </section>
+
+      <aside aria-labelledby="korpa-h" style="flex:0 1 320px;min-width:260px;display:{{ asideDisplay }};flex-direction:column;gap:12px">
+        <div style="background:var(--c-primary);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <i class="ph-duotone ph-basket" style="font-size:20px;color:var(--c-secondary)"></i>
+            <h2 id="korpa-h" style="margin:0;font-size:16px;font-weight:800;flex:1">Korpa za upit</h2>
+            <span style="font-size:12px;font-weight:700;color:var(--c-muted)">{{ cartCount }}</span>
+          </div>
+          <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ true }}">
+            <p style="margin:0;font-size:12px;line-height:1.5;color:var(--c-muted)">Prazna. Upit možete poslati i bez opreme.</p>
+          </sc-if>
+          <sc-for list="{{ cartRows }}" as="c" hint-placeholder-count="0">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--c-line)">
+              <span style="flex:1;min-width:0;font-weight:600;font-size:12px;line-height:1.4">{{ c.name }}</span>
+              <div style="display:flex;align-items:center;gap:4px">
+                <button onClick="{{ c.dec }}" aria-label="Manje" style="width:36px;height:36px;border:0;border-radius:8px;background:var(--c-surface);cursor:pointer;display:flex;align-items:center;justify-content:center"><i class="ph ph-minus" style="font-size:12px"></i></button>
+                <span style="min-width:20px;text-align:center;font-weight:700;font-size:12px">{{ c.qty }}</span>
+                <button onClick="{{ c.inc }}" aria-label="Više" style="width:36px;height:36px;border:0;border-radius:8px;background:var(--c-surface);cursor:pointer;display:flex;align-items:center;justify-content:center"><i class="ph ph-plus" style="font-size:12px"></i></button>
+              </div>
+              <button onClick="{{ c.remove }}" aria-label="Ukloni" style="width:36px;height:36px;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--c-muted)" style-hover="color:var(--c-error)"><i class="ph ph-x" style="font-size:16px"></i></button>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:var(--c-secondary);color:var(--c-on-dark);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;font-weight:700;color:var(--c-on-dark-muted)">Radije razgovarate?</span>
+          <a href="tel:+381637769518" style="display:flex;align-items:center;gap:8px;color:var(--c-on-dark);text-decoration:none;font-weight:700;font-size:16px"><i class="ph-duotone ph-phone-call" style="font-size:20px;color:var(--c-tertiary)"></i>063 776 9518</a>
+          <a href="mailto:info@dnd-znr.com" style="display:flex;align-items:center;gap:8px;color:var(--c-on-dark);text-decoration:none;font-weight:700;font-size:16px"><i class="ph-duotone ph-envelope-open" style="font-size:20px;color:var(--c-tertiary)"></i>info@dnd-znr.com</a>
+        </div>
+      </aside>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:20px;align-items:stretch">
+        <div role="status" style="background:var(--c-primary);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;color:var(--c-success)"><i class="ph-duotone ph-check-circle" style="font-size:28px"></i>Upit je poslat</span>
+          <p style="margin:0;font-size:16px;color:var(--c-muted);flex:1;text-wrap:pretty">Hvala! Javljamo Vam se u najkraćem roku.</p>
+          <button onClick="{{ goBack }}" style="align-self:flex-start;height:40px;padding:0 16px;border:0;border-radius:12px;background:var(--c-secondary);color:var(--c-on-dark);font:inherit;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;cursor:pointer" style-hover="background:var(--c-secondary-strong)"><i class="ph ph-arrow-left"></i>Nazad</button>
+        </div>
+        <div style="background:var(--c-primary);border-radius:20px;padding:24px;display:{{ sentExtraDisplay }};flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <i class="ph-duotone ph-basket" style="font-size:20px;color:var(--c-secondary)"></i>
+            <span style="margin:0;font-size:16px;font-weight:800;flex:1">Korpa za upit</span>
+            <span style="font-size:12px;font-weight:700;color:var(--c-muted)">{{ sentCount }}</span>
+          </div>
+          <p style="margin:0;font-size:16px;color:var(--c-muted);text-wrap:pretty">{{ sentCartText }}</p>
+        </div>
+        <div style="background:var(--c-secondary);color:var(--c-on-dark);border-radius:20px;padding:24px;display:{{ sentExtraDisplay }};flex-direction:column;gap:12px">
+          <span style="font-size:12px;font-weight:700;color:var(--c-on-dark-muted)">Hitno?</span>
+          <a href="tel:+381637769518" style="display:flex;align-items:center;gap:8px;color:var(--c-on-dark);text-decoration:none;font-weight:700;font-size:16px"><i class="ph-duotone ph-phone-call" style="font-size:20px;color:var(--c-tertiary)"></i>063 776 9518</a>
+          <a href="mailto:info@dnd-znr.com" style="display:flex;align-items:center;gap:8px;color:var(--c-on-dark);text-decoration:none;font-weight:700;font-size:16px"><i class="ph-duotone ph-envelope-open" style="font-size:20px;color:var(--c-tertiary)"></i>info@dnd-znr.com</a>
+        </div>
+      </div>
+
+      <sc-if value="{{ sentEmpty }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="02 Katalog CTA" style="margin-top:20px;background:var(--c-tertiary);color:var(--c-secondary-strong);border-radius:20px;padding:clamp(24px,3.5vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px">
+          <div style="display:flex;align-items:center;gap:16px;min-width:0;flex:1 1 360px">
+            {{ gearIcon }}
+            <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <h2 style="margin:0;font-size:28px;font-weight:800;line-height:1.2;letter-spacing:-0.02em;text-wrap:balance">Pogledajte i šta nudimo</h2>
+              <p style="margin:0;font-size:16px;text-wrap:pretty">Zaštitna oprema i sve što je potrebno za bezbedan rad, na jednom mestu.</p>
+            </div>
+          </div>
+          <a href="DND Oprema.dc.html" style="height:52px;padding:0 24px;border-radius:12px;background:var(--c-secondary-strong);color:var(--c-on-dark);display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap" style-hover="background:#1F2023;color:var(--c-on-dark)">Pogledajte katalog<i class="ph ph-arrow-right"></i></a>
+        </div>
+      </sc-if>
+    </sc-if>
+  </div>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SERVICES = ['Bezbednost i zdravlje na radu', 'Upravljanje otpadom', 'Vanredne situacije', 'Zaštita lica, imovine i poslovanja', 'Hemikalije i biocidi', 'Prva pomoć', 'Oprema', 'Ostalo'];
+
+const GEAR = ['hard-hat', 'fire-extinguisher', 'shirt-folded', 'boot', 'goggles', 'hand-palm', 'headphones', 'first-aid-kit', 'traffic-cone', 'warning'];
+
+class GearIcon extends React.Component {
+  state = { k: 0 };
+  componentDidMount() {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.t = setInterval(() => this.setState(s => ({ k: (s.k + 1) % GEAR.length })), 1100);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+  render() {
+    const k = this.state.k;
+    return React.createElement('div', { className: 'dnd-gear', 'aria-hidden': true, style: { width: 64, height: 64, flex: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' } },
+      React.createElement('i', { key: k, className: 'ph-fill ph-' + GEAR[k], style: { fontSize: 64, lineHeight: 1, color: 'var(--c-secondary-strong)', animation: 'dndGearIn .4s cubic-bezier(.2,.8,.2,1) both' } }));
+  }
+}
+
+class Component extends DCLogic {
+  state = { cart: [], ret: null, sent: false, err: {}, f: { ime: '', firma: '', tel: '', email: '', usluga: [], poruka: '', ok: false } };
+
+  componentDidMount() {
+    this._onW = () => this.setState({ vw: window.innerWidth }); window.addEventListener('resize', this._onW); this._onW();
+    let cart = [], ret = null;
+    try { cart = JSON.parse(localStorage.getItem('dnd-upit') || '[]'); } catch (e) {}
+    try { ret = JSON.parse(sessionStorage.getItem('dnd-return') || 'null'); } catch (e) {}
+    const q = new URLSearchParams(location.search);
+    const usluga = [...new Set([q.get('usluga'), cart.length ? 'Oprema' : null].filter(Boolean))];
+    this.setState(st => ({ cart, ret, f: { ...st.f, usluga } }));
+    this.onS = () => { try { this.setState({ cart: JSON.parse(localStorage.getItem('dnd-upit') || '[]') }); } catch (e) {} };
+    window.addEventListener('storage', this.onS);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this.onS); }
+  saveCart(cart) { this.setState({ cart }); try { localStorage.setItem('dnd-upit', JSON.stringify(cart)); } catch (e) {} }
+
+  goBack = () => {
+    const r = this.state.ret;
+    if (r && r.href) {
+      try { sessionStorage.setItem('dnd-restore', String(r.y || 0)); } catch (e) {}
+      location.href = r.href;
+    } else location.href = 'DND Pocetna.dc.html';
+  };
+
+  renderVals() {
+    const s = this.state, cart = s.cart, err = s.err;
+    const hasCart = cart.length > 0;
+    const set = k => e => { const v = e.target.type === 'checkbox' ? e.target.checked : e.target.value; this.setState(st => ({ f: { ...st.f, [k]: v } })); };
+    const border = k => err[k] ? 'var(--c-error)' : 'transparent';
+    const upd = (id, fn) => this.saveCart(cart.map(c => c.id === id ? { ...c, qty: fn(c.qty) } : c));
+    return {
+      ...(() => { const ph = (s.vw || (typeof window !== 'undefined' ? window.innerWidth : 1440)) < 768; return { crumbDisplay: ph ? 'none' : 'flex', sentExtraDisplay: ph ? 'none' : 'flex', subDisplay: ph ? 'none' : 'block', multiDisplay: ph ? 'none' : 'inline', sepDisplay: ph ? 'none' : 'block', chipDisp: ph ? 'grid' : 'flex', chipH: ph ? '48px' : '36px', chipPad: ph ? '8px 12px' : '0 16px', chipJust: ph ? 'flex-start' : 'center', chipWs: ph ? 'normal' : 'nowrap', chipR: ph ? '12px' : '20px', chipFs: ph ? '14px' : '12px', asideDisplay: ph && !(this.state.cart && this.state.cart.length) ? 'none' : 'flex' }; })(),
+      backLabel: (s.ret && s.ret.label) || 'početnu',
+      backPage: (s.ret && s.ret.page) || 'Početna', fromSub: !!(s.ret && s.ret.page && s.ret.page !== 'Početna'),
+      goBack: this.goBack,
+      title: hasCart ? 'Pošaljite upit' : 'Zakažite besplatne konsultacije',
+      subtitle: hasCart ? 'Proizvodi iz korpe se šalju uz upit. Možete dodati i uslugu, odgovaramo jednom ponudom.' : 'Javićemo Vam se da u kratkom razgovoru utvrdimo šta Vaša firma mora da ima.',
+      submitLabel: hasCart ? 'Pošalji upit' : 'Pošalji',
+      msgPlaceholder: hasCart ? 'Npr. veličine, rok isporuke, adresa' : 'Npr. delatnost i broj zaposlenih',
+      cartCount: cart.reduce((a, c) => a + c.qty, 0), hasCart, cartEmpty: !hasCart,
+      cartRows: cart.map(c => ({ ...c, inc: () => upd(c.id, q => q + 1), dec: () => upd(c.id, q => Math.max(1, q - 1)), remove: () => this.saveCart(cart.filter(x => x.id !== c.id)) })),
+      serviceOptions: SERVICES.map(n => { const on = s.f.usluga.includes(n); return { name: n, active: on, checkW: on ? '16px' : '0px', checkOp: on ? 1 : 0, bg: on ? 'var(--c-secondary-strong)' : 'var(--c-surface)', color: on ? 'var(--c-on-dark)' : 'var(--c-text)', pick: () => this.setState(st => ({ f: { ...st.f, usluga: st.f.usluga.includes(n) ? st.f.usluga.filter(x => x !== n) : [...st.f.usluga, n] } })) }; }),
+      gearIcon: this._gear || (this._gear = React.createElement(GearIcon)),
+      sent: s.sent, notSent: !s.sent, f: s.f,
+      sentEmpty: s.sent && !s.sentN, sentCount: s.sentN || 0,
+      sentCartText: s.sentN ? 'Poslato uz upit: ' + s.sentN + (s.sentN === 1 ? ' proizvod.' : ' proizvoda.') + ' Cene i dostupnost stižu u ponudi.' : 'Upit je poslat bez opreme.',
+      okBox: s.f.ok ? { bg: 'var(--c-tertiary)', border: 'var(--c-tertiary)' } : { bg: 'var(--c-primary)', border: err.ok ? 'var(--c-error)' : 'var(--c-line-strong)' },
+      e: { ...err, imeBorder: border('ime'), telBorder: border('tel'), emailBorder: border('email'), imeInvalid: !!err.ime, telInvalid: !!err.tel, emailInvalid: !!err.email },
+      setIme: set('ime'), setFirma: set('firma'), setTel: set('tel'), setEmail: set('email'), setUsluga: set('usluga'), setPoruka: set('poruka'), setOk: set('ok'),
+      submit: ev => {
+        ev.preventDefault();
+        const f = s.f, e = {};
+        if (!f.ime.trim()) e.ime = 'Unesite ime i prezime.';
+        const t = f.tel.trim();
+        if (!t) e.tel = 'Unesite broj telefona.'; else if (!/^[+\d][\d\s\/-]{5,}$/.test(t)) e.tel = 'Broj telefona nije ispravan.';
+        const m = f.email.trim();
+        if (!m) e.email = 'Unesite email adresu.'; else if (!/^\S+@\S+\.\S+$/.test(m)) e.email = 'Email adresa nije ispravna.';
+        if (!f.ok) e.ok = 'Potrebna je Vaša saglasnost za obradu podataka.';
+        const ok = Object.keys(e).length === 0;
+        const n = cart.reduce((a, c) => a + c.qty, 0);
+        this.setState(ok ? { err: e, sent: true, sentN: n } : { err: e });
+        if (ok) { this.saveCart([]); window.scrollTo(0, 0); }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

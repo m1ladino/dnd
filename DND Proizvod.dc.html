@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Proizvod | Oprema | DND zaštita na radu</title>
+<meta name="description" content="Oprema za zaštitu na radu. DND zaštita na radu, Zrenjanin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://unpkg.com" crossorigin="anonymous">
+<style>
+html{background:#FFFFFF;scrollbar-gutter:stable;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{overflow-x:clip}
+img,video{max-width:100%}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<style>
+:root{--c-primary:#FFFFFF;--c-secondary:#4A4D52;--c-secondary-strong:#2F3135;--c-tertiary:#FFC000;--c-tertiary-strong:#E6AC00;--c-tertiary-soft:#FFF5D1;--c-surface:#F5F5F3;--c-line:#E4E4E1;--c-line-strong:#C9CAC6;--c-text:#2F3135;--c-muted:#5C5F64;--c-on-dark:#FFFFFF;--c-on-dark-muted:#D5D6D8;--c-error:#B42318;--c-error-soft:#FDECEA;--c-success:#1E7B45;--c-success-soft:#E6F4EC}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--c-primary);color:var(--c-text);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--c-secondary-strong)}
+a:hover{color:var(--c-secondary)}
+:focus-visible{outline:2px solid var(--c-secondary-strong);outline-offset:3px}
+@keyframes dndDraw{to{stroke-dashoffset:0}}
+@keyframes dndStamp{0%{opacity:0;transform:translate(0,-18px) scale(1.7) rotate(-18deg)}55%{opacity:1;transform:translate(0,0) scale(.92) rotate(-12deg)}75%{transform:scale(1.05) rotate(-12deg)}100%{opacity:1;transform:scale(1) rotate(-12deg)}}
+@keyframes dndDocIn{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes dndLine{0%{stroke-dashoffset:60}100%{stroke-dashoffset:0}}
+@keyframes dndPulseLine{0%{stroke-dashoffset:120}60%,100%{stroke-dashoffset:0}}
+@keyframes dndBeat{0%,100%{transform:scale(1)}12%{transform:scale(1.08)}24%{transform:scale(.98)}36%{transform:scale(1.05)}50%{transform:scale(1)}}
+@keyframes dndScan{0%,100%{transform:translate(0,0)}25%{transform:translate(-14px,10px)}50%{transform:translate(-4px,20px)}75%{transform:translate(-16px,26px)}}
+@keyframes dndTick{0%,40%{stroke-dashoffset:14}60%,100%{stroke-dashoffset:0}}
+@keyframes dndStarIn{0%{opacity:0;transform:scale(.3) rotate(-40deg)}70%{opacity:1;transform:scale(1.2) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes dndStarGlint{0%,82%,100%{filter:brightness(1);transform:scale(1)}88%{filter:brightness(1.35) drop-shadow(0 0 6px rgba(255,192,0,.7));transform:scale(1.18)}}
+@keyframes dndShine{0%,60%{transform:translateX(-120%) skewX(-20deg)}100%{transform:translateX(320%) skewX(-20deg)}}
+@keyframes dndPulse{0%{box-shadow:0 0 0 0 rgba(255,192,0,.55)}70%{box-shadow:0 0 0 8px rgba(255,192,0,0)}100%{box-shadow:0 0 0 0 rgba(255,192,0,0)}}
+@keyframes dndMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+<script src="./oprema-data.js"></script>
+</helmet>
+
+<div lang="sr-Latn" style="min-height:100vh;background:var(--c-primary);padding-bottom:{{ bodyPad }}">
+
+<header data-screen-label="Heder" style="position:sticky;top:0;z-index:50;background:var(--c-primary);border-bottom:1px solid var(--c-line)">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);height:76px;display:flex;align-items:center;gap:28px">
+    <a href="DND Pocetna.dc.html" aria-label="DND zaštita na radu, početna" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--c-text);flex:1 1 0;min-width:max-content">
+      <img src="assets/dnd-logo-sm.png" alt="DND" width="86" height="56" decoding="async" style="height:56px;width:auto;display:block">
+      
+    </a>
+
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Glavni meni" style="display:flex;align-items:stretch;height:76px;gap:4px;flex:0 0 auto;justify-content:center">
+        <div style="display:flex;align-items:center">
+          <a href="DND Usluge.dc.html" style="display:flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;font-weight:600;font-size:16px;color:var(--c-text);text-decoration:none;transition:background-color .25s ease,color .25s ease" style-hover="background:var(--c-surface)">Usluge</a>
+        </div>
+        <div data-menu="1" style="display:flex;align-items:center;align-self:center;height:40px;border-radius:8px;background:{{ opremaBg }};transition:background-color .25s ease" style-hover="background:var(--c-surface)">
+          <a href="DND Oprema.dc.html" style="display:flex;align-items:center;height:40px;padding:0 4px 0 12px;border-radius:8px;font-weight:600;font-size:16px;color:var(--c-text);transition:background-color .25s ease,color .25s ease;text-decoration:none">Oprema</a>
+          <button onClick="{{ toggleOprema }}" aria-expanded="{{ opremaOpen }}" aria-label="Prikaži kategorije opreme" style="width:32px;height:40px;padding:0 4px 0 0;border:0;border-radius:8px;background:transparent;color:var(--c-text);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph ph-caret-down" style="font-size:16px;transform:rotate({{ opremaRot }});transition:transform .25s ease"></i></button>
+          <sc-if value="{{ opremaOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:100%;left:0;right:0;background:var(--c-primary);border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);box-shadow:0 20px 40px rgba(47,49,53,0.10)">
+              <div style="max-width:1200px;margin:0 auto;padding:32px clamp(20px,4vw,32px) 36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+                <sc-for list="{{ equipment }}" as="g" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:12px">
+                    <a href="{{ g.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:var(--c-text);text-decoration:none;padding-bottom:12px;border-bottom:1px solid var(--c-line)"><i class="ph {{ g.icon }}" style="font-size:20px"></i>{{ g.name }}</a>
+                    <div style="display:flex;flex-direction:column;gap:4px">
+                      <sc-for list="{{ g.links }}" as="it" hint-placeholder-count="4">
+                        <a href="{{ it.href }}" onClick="{{ closeMenu }}" style="font-size:16px;color:var(--c-muted);text-decoration:none;line-height:1.5" style-hover="color:var(--c-text);text-decoration:underline">{{ it.name }}</a>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <a href="DND O nama.dc.html" style="display:flex;align-items:center;align-self:center;height:40px;padding:0 12px;border-radius:8px;white-space:nowrap;font-weight:600;font-size:16px;color:var(--c-text);text-decoration:none;transition:background-color .25s ease,color .25s ease" style-hover="background:var(--c-surface)">O nama</a>
+        <a href="DND Pocetna.dc.html#propisi" style="display:flex;align-items:center;align-self:center;height:40px;padding:0 12px;border-radius:8px;white-space:nowrap;font-weight:600;font-size:16px;color:var(--c-text);text-decoration:none;transition:background-color .25s ease,color .25s ease" style-hover="background:var(--c-surface)">Propisi</a>
+        <a href="#kontakt" style="display:flex;align-items:center;align-self:center;height:40px;padding:0 12px;border-radius:8px;white-space:nowrap;font-weight:600;font-size:16px;color:var(--c-text);text-decoration:none;transition:background-color .25s ease,color .25s ease" style-hover="background:var(--c-surface)">Kontakt</a>
+      </nav>
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:1 1 0;min-width:max-content">
+        <button onClick="{{ openCart }}" aria-label="Korpa za upit, {{ cartCount }} stavki" style="position:relative;width:44px;height:44px;border:1px solid var(--c-line);border-radius:8px;background:var(--c-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--c-text)" style-hover="border-color:var(--c-line-strong)">
+          <i class="ph ph-basket" style="font-size:20px"></i>
+          <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 4px;border-radius:8px;background:var(--c-secondary-strong);color:var(--c-on-dark);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></sc-if>
+        </button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <button onClick="{{ openCart }}" aria-label="Korpa za upit, {{ cartCount }} stavki" style="position:relative;width:44px;height:44px;border:1px solid var(--c-line);border-radius:8px;background:var(--c-primary);display:flex;align-items:center;justify-content:center;color:var(--c-text)">
+          <i class="ph ph-basket" style="font-size:20px"></i>
+          <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 4px;border-radius:8px;background:var(--c-secondary-strong);color:var(--c-on-dark);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></sc-if>
+        </button>
+        <button onClick="{{ toggleNav }}" aria-expanded="{{ navOpen }}" aria-label="Meni" style="width:44px;height:44px;border:0;border-radius:8px;background:var(--c-secondary);color:var(--c-on-dark);display:flex;align-items:center;justify-content:center"><i class="ph {{ navIcon }}" style="font-size:24px"></i></button>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeNav }}" aria-hidden="true" style="position:fixed;top:76px;left:0;right:0;bottom:0;background:rgba(47,49,53,0.4);z-index:59"></div>
+    <div style="position:fixed;top:76px;left:0;right:0;max-height:calc(100vh - 156px);max-height:calc(100dvh - 156px);background:var(--c-primary);overflow-y:auto;overscroll-behavior:contain;padding:12px 20px 20px;z-index:60;border-radius:0 0 16px 16px;box-shadow:0 16px 32px rgba(47,49,53,0.18)">
+      <nav aria-label="Mobilni meni" style="display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ mobileGroups }}" as="mg" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:60px"><a href="{{ mg.href }}" onClick="{{ closeNav }}" style="flex:1;min-width:0;display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">{{ mg.label }}</a><button onClick="{{ mg.toggle }}" aria-expanded="{{ mg.open }}" aria-label="Prikaži listu: {{ mg.label }}" style="width:44px;height:44px;border:0;border-radius:50%;background:var(--c-surface);display:flex;align-items:center;justify-content:center;flex:none;cursor:pointer;color:var(--c-text)"><i class="ph-bold {{ mg.caret }}" style="font-size:16px"></i></button></div>
+            <sc-if value="{{ mg.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;margin:4px 0 12px;padding:6px 0;border-radius:14px;background:var(--c-surface)">
+                <sc-for list="{{ mg.items }}" as="mi" hint-placeholder-count="4">
+                  <a href="{{ mi.href }}" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:46px;padding:0 16px;color:var(--c-text);text-decoration:none;font-size:16px;font-weight:600;line-height:1.3">{{ mi.name }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <a href="DND O nama.dc.html" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">O nama</a>
+        <a href="DND Pocetna.dc.html#propisi" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">Propisi</a>
+        <a href="#kontakt" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">Kontakt</a>
+      </nav>
+    </div>
+  </sc-if>
+</header>
+
+<main id="top" style="padding:clamp(20px,3vw,32px) 0 clamp(48px,6vw,80px)">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+    <nav aria-label="Putanja" style="display:{{ crumbDisplay }};flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:15px;font-weight:600;color:var(--c-muted)">
+      <sc-for list="{{ crumbs }}" as="b" hint-placeholder-count="2">
+        <span style="display:flex;align-items:center;gap:8px;min-width:0">
+          <sc-if value="{{ b.link }}" hint-placeholder-val="{{ true }}"><a href="{{ b.href }}" onClick="{{ b.go }}" style="color:var(--c-muted);text-decoration:none;white-space:nowrap;transition:color .2s ease" style-hover="color:var(--c-text)">{{ b.label }}</a><i class="ph ph-caret-right" style="font-size:14px"></i></sc-if>
+          <sc-if value="{{ b.last }}" hint-placeholder-val="{{ false }}"><span style="color:var(--c-text);font-weight:700;white-space:nowrap">{{ b.label }}</span></sc-if>
+        </span>
+      </sc-for>
+    </nav>
+    <section data-screen-label="01 Proizvod" style="display:grid;grid-template-columns:{{ L.cols }};gap:clamp(24px,4vw,56px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:12px;min-width:0;position:{{ L.galPos }};top:100px">
+        <div style="position:relative;aspect-ratio:1 / 1;border-radius:20px;background:var(--c-surface);overflow:hidden;color:var(--c-secondary);display:flex;align-items:center;justify-content:center">
+          <sc-if value="{{ view.hasImg }}" hint-placeholder-val="{{ false }}">{{ view.imgEl }}</sc-if>
+          <sc-if value="{{ view.noImg }}" hint-placeholder-val="{{ true }}"><i class="ph-duotone {{ view.icon }}" style="font-size:clamp(110px,16vw,190px);transform:scale({{ view.scale }});transition:transform .45s cubic-bezier(.2,.7,.2,1)"></i></sc-if>
+          <sc-if value="{{ card.isNew }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:16px;left:16px;height:28px;padding:0 10px;border-radius:8px;background:var(--c-tertiary);color:var(--c-secondary-strong);font-size:13px;font-weight:800;display:flex;align-items:center">Novo</span></sc-if>
+          <sc-if value="{{ multiView }}" hint-placeholder-val="{{ true }}">
+            <span style="position:absolute;left:16px;bottom:16px;height:32px;padding:0 12px;border-radius:1000px;background:var(--c-primary);font-size:13px;font-weight:700;color:var(--c-text);display:flex;align-items:center">{{ viewCounter }}</span>
+            <div style="position:absolute;right:16px;bottom:16px;display:flex;gap:8px">
+              <button onClick="{{ prevView }}" aria-label="Prethodna fotografija" style="width:44px;height:44px;border:0;border-radius:50%;background:var(--c-primary);color:var(--c-text);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(47,49,53,0.10);transition:transform .2s ease" style-hover="transform:translateX(-2px)"><i class="ph-bold ph-caret-left" style="font-size:18px"></i></button>
+              <button onClick="{{ nextView }}" aria-label="Sledeća fotografija" style="width:44px;height:44px;border:0;border-radius:50%;background:var(--c-primary);color:var(--c-text);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(47,49,53,0.10);transition:transform .2s ease" style-hover="transform:translateX(2px)"><i class="ph-bold ph-caret-right" style="font-size:18px"></i></button>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ multiView }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+            <sc-for list="{{ views }}" as="v" hint-placeholder-count="3">
+              <button onClick="{{ v.pick }}" aria-label="Fotografija {{ v.n }}" aria-current="{{ v.current }}" style="position:relative;aspect-ratio:1 / 1;padding:0;border:2px solid {{ v.border }};border-radius:14px;background:var(--c-surface);overflow:hidden;color:var(--c-secondary);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s ease">
+                <sc-if value="{{ v.hasImg }}" hint-placeholder-val="{{ false }}">{{ v.imgEl }}</sc-if>
+                <sc-if value="{{ v.noImg }}" hint-placeholder-val="{{ true }}"><i class="ph-duotone {{ v.icon }}" style="font-size:clamp(24px,3.4vw,40px);transform:scale({{ v.scale }})"></i></sc-if>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:24px;min-width:0">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="{{ card.subHref }}" style="align-self:flex-start;font-size:14px;font-weight:700;color:var(--c-muted);text-decoration:none;transition:color .2s ease" style-hover="color:var(--c-text)">{{ card.subName }}</a>
+          <h1 style="margin:0;font-weight:800;font-size:clamp(28px,3.4vw,44px);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance">{{ p.name }}</h1>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;font-size:14px;font-weight:600">
+            <span style="display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:1000px;background:{{ stockBg }};color:var(--c-text)"><span style="width:8px;height:8px;border-radius:50%;background:{{ card.stockDot }}"></span>{{ card.stockLabel }}</span>
+            <span style="color:var(--c-muted)">Šifra: {{ p.sku }}</span>
+          </div>
+        </div>
+        <p style="margin:0;font-size:clamp(16px,1.4vw,18px);line-height:1.6;color:var(--c-muted);text-wrap:pretty">{{ p.short }}</p>
+
+        <sc-if value="{{ hasSizes }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span id="velicina-h" style="font-size:16px;font-weight:800">Veličina</span><sc-if value="{{ sizeErr }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:14px;font-weight:700;color:var(--c-error)">Izaberite veličinu</span></sc-if></div>
+            <div role="radiogroup" aria-labelledby="velicina-h" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:8px">
+              <sc-for list="{{ sizes }}" as="z" hint-placeholder-count="6">
+                <button onClick="{{ z.pick }}" role="radio" aria-checked="{{ z.on }}" style="height:48px;border:1.5px solid {{ z.border }};border-radius:8px;background:{{ z.bg }};color:{{ z.color }};font:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease" style-hover="border-color:var(--c-secondary-strong)">{{ z.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <div style="flex:none;display:flex;align-items:center;height:56px;border:1.5px solid var(--c-line-strong);border-radius:10px">
+            <button onClick="{{ qtyDec }}" aria-label="Smanji količinu" style="width:48px;height:100%;border:0;background:transparent;cursor:pointer;color:var(--c-text);display:flex;align-items:center;justify-content:center"><i class="ph-bold ph-minus" style="font-size:16px"></i></button>
+            <input value="{{ qty }}" onChange="{{ setQty }}" inputMode="numeric" aria-label="Količina" style="width:48px;height:100%;border:0;background:transparent;text-align:center;font:inherit;font-weight:800;font-size:17px;color:var(--c-text);outline-offset:-2px">
+            <button onClick="{{ qtyInc }}" aria-label="Povećaj količinu" style="width:48px;height:100%;border:0;background:transparent;cursor:pointer;color:var(--c-text);display:flex;align-items:center;justify-content:center"><i class="ph-bold ph-plus" style="font-size:16px"></i></button>
+          </div>
+          <button onClick="{{ addCart }}" style="flex:1 1 200px;height:56px;border:0;border-radius:10px;background:var(--c-tertiary);color:var(--c-secondary-strong);display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:800;font-size:17px;cursor:pointer;transition:background-color .25s ease" style-hover="background:var(--c-tertiary-strong)"><i class="ph-bold ph-basket" style="font-size:20px"></i>Dodaj u korpu</button>
+        </div>
+        <sc-if value="{{ added }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:12px 16px;border-radius:10px;background:var(--c-success-soft);color:var(--c-success);font-weight:700;font-size:15px">
+            <i class="ph-bold ph-check-circle" style="font-size:20px"></i><span style="flex:1;min-width:0">{{ addedText }}</span>
+            <button onClick="{{ openCart }}" style="padding:0;border:0;background:transparent;font:inherit;font-weight:800;color:var(--c-success);text-decoration:underline;text-underline-offset:3px;cursor:pointer">Pogledaj korpu</button>
+          </div>
+        </sc-if>
+
+        <div style="display:flex;flex-direction:column;gap:14px;padding:20px;border-radius:16px;background:var(--c-surface)">
+          <sc-for list="{{ perks }}" as="k" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:var(--c-text)"><i class="ph-duotone {{ k.icon }}" style="font-size:22px;flex:none;color:var(--c-secondary-strong)"></i><span style="flex:1;min-width:0;text-wrap:pretty">{{ k.text }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="02 Opis i specifikacije" style="display:grid;grid-template-columns:{{ L.desc }};gap:clamp(32px,4vw,56px);padding-top:clamp(8px,2vw,24px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <h2 style="margin:0;font-size:clamp(22px,2.4vw,28px);font-weight:800;letter-spacing:-0.02em">Opis</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:var(--c-text);max-width:62ch;text-wrap:pretty">{{ p.desc }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <h2 style="margin:0;font-size:clamp(22px,2.4vw,28px);font-weight:800;letter-spacing:-0.02em">Specifikacije</h2>
+        <dl style="margin:0;display:flex;flex-direction:column;border-radius:16px;overflow:hidden">
+          <sc-for list="{{ specs }}" as="sp" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px;padding:13px 18px;background:{{ sp.bg }}">
+              <dt style="font-size:15px;color:var(--c-muted)">{{ sp.k }}</dt>
+              <dd style="margin:0;font-size:15px;font-weight:700;color:var(--c-text);overflow-wrap:anywhere">{{ sp.v }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+      </div>
+    </section>
+
+    <section data-screen-label="03 Slični proizvodi" style="display:flex;flex-direction:column;gap:24px;padding-top:clamp(16px,3vw,40px)">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px">
+        <h2 style="margin:0;font-size:clamp(24px,2.8vw,34px);font-weight:800;letter-spacing:-0.02em">Slični proizvodi</h2>
+        <a href="{{ catHref }}" style="display:flex;align-items:center;gap:6px;font-weight:700;font-size:16px;color:var(--c-text);text-decoration:none" style-hover="color:var(--c-secondary)">{{ catLinkLabel }}<i class="ph-bold ph-arrow-right" style="font-size:16px"></i></a>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ L.sim }};gap:{{ L.gap }}">
+        <sc-for list="{{ similar }}" as="it" hint-placeholder-count="4">
+          <dc-import name="KarticaProizvoda" p="{{ it }}" hint-size="100%,380px"></dc-import>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer id="kontakt" data-screen-label="11 Futer" style="background:var(--c-secondary);color:var(--c-on-dark);padding:{{ footPad }}">
+<sc-if value="{{ footDesk }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column">
+    <div style="order:{{ footRowOrder }};display:grid;grid-template-columns:{{ footRowCols }};justify-items:center;text-align:center;align-items:center;gap:{{ footRowGap }};padding:20px 0 12px;border-top:1px solid rgba(255,255,255,0.14);font-size:15px;color:var(--c-on-dark-muted)">
+      <span style="justify-self:{{ footJsL }}">© 2026 DND zaštita na radu d.o.o.</span>
+      <button onClick="{{ reopenCookie }}" style="display:{{ footCookieMob }};border:0;background:transparent;padding:4px 0;font:inherit;font-size:14px;color:var(--c-on-dark-muted);text-decoration:underline;cursor:pointer">Podešavanja kolačića</button>
+      <nav aria-label="Pravne informacije" style="display:{{ footNavDisp }};gap:24px;justify-self:center;white-space:nowrap">
+        <a href="#" style="color:var(--c-on-dark-muted);text-decoration:none" style-hover="color:var(--c-on-dark)">Politika privatnosti</a>
+        <button onClick="{{ reopenCookie }}" style="border:0;background:transparent;padding:0;font:inherit;color:var(--c-on-dark-muted);cursor:pointer" style-hover="color:var(--c-on-dark)">Podešavanja kolačića</button>
+      </nav>
+      <span style="display:{{ footNavDisp }};justify-self:{{ footJsR }}">Zrenjanin · od 2010.</span>
+    </div>
+    <div aria-hidden="true" style="height:clamp(96px,16vw,214px);overflow:hidden;display:flex;justify-content:center;user-select:none"><span style="display:block;font-weight:900;font-size:clamp(140px,24vw,320px);line-height:0.86;letter-spacing:0.01em;margin-top:8px;background:linear-gradient(180deg,rgba(255,255,255,0.42) 0%,rgba(255,255,255,0.16) 55%,rgba(255,255,255,0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent">DND</span></div>
+  </div>
+</sc-if>
+<sc-if value="{{ footMob }}" hint-placeholder-val="{{ false }}">
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:{{ footGap }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px 32px">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:{{ footAlign }};text-align:{{ footTA }}">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="background:var(--c-primary);border-radius:8px;padding:4px 8px;display:flex"><img src="assets/dnd-logo-sm.png" alt="DND" width="55" height="36" decoding="async" style="height:36px;width:auto;display:block"></span>
+          <span style="font-weight:800;font-size:16px;line-height:1.2">DND zaštita na radu</span>
+        </div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:var(--c-on-dark-muted);max-width:34ch">Licencirana agencija za bezbednost i zdravlje na radu, zaštitu životne sredine i vanredne situacije. Zrenjanin, od 2010.</p>
+      </div>
+      <div style="display:{{ footColDisp }};flex-direction:column;gap:12px">
+        <h3 style="margin:0 0 4px;font-size:16px;font-weight:700;color:var(--c-tertiary)">Usluge</h3>
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+          <a href="DND Pocetna.dc.html#usluge" style="font-size:16px;color:var(--c-on-dark);text-decoration:none;line-height:1.45" style-hover="text-decoration:underline;color:var(--c-on-dark)">{{ s.name }}</a>
+        </sc-for>
+      </div>
+      <div style="display:{{ footColDisp }};flex-direction:column;gap:12px">
+        <h3 style="margin:0 0 4px;font-size:16px;font-weight:700;color:var(--c-tertiary)">Oprema</h3>
+        <sc-for list="{{ equipment }}" as="g" hint-placeholder-count="4">
+          <a href="{{ g.href }}" style="font-size:16px;color:var(--c-on-dark);text-decoration:none;line-height:1.45" style-hover="text-decoration:underline;color:var(--c-on-dark)">{{ g.name }}</a>
+        </sc-for>
+      </div>
+      <address style="font-style:normal;display:{{ footColDisp }};flex-direction:column;gap:8px;font-size:16px;line-height:1.5">
+        <h3 style="margin:0 0 4px;font-size:16px;font-weight:700;color:var(--c-tertiary)">Kontakt</h3>
+        <span>Carice Milice 21, Zrenjanin</span>
+        <a href="tel:+381637769518" style="color:var(--c-on-dark);font-weight:700">Mob. 063 776 9518</a>
+        <a href="tel:+381233101030" style="color:var(--c-on-dark)">Tel. 023 3101030</a>
+        <a href="mailto:info@dnd-znr.com" style="color:var(--c-on-dark)">info@dnd-znr.com</a>
+        <span style="color:var(--c-on-dark-muted)">MB 20690224 · PIB 106838232</span>
+      </address>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:{{ footBotJust }};text-align:{{ footTA }};gap:12px;padding-top:{{ footBotPad }};border-top:1px solid rgba(255,255,255,0.18);font-size:16px;color:var(--c-on-dark-muted)">
+      <span>© 2026 DND zaštita na radu d.o.o.</span>
+      <div style="display:flex;gap:20px">
+        <a href="#" style="color:var(--c-on-dark)">Politika privatnosti [PLACEHOLDER]</a>
+        <button onClick="{{ reopenCookie }}" style="border:0;background:transparent;padding:0;font:inherit;color:var(--c-on-dark);text-decoration:underline;cursor:pointer">Podešavanja kolačića</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</footer>
+
+<sc-if value="{{ isPhone }}" hint-placeholder-val="{{ false }}">
+  <a href="tel:+381637769518" aria-label="Pozovite 063 776 9518" style="position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:70;width:56px;height:56px;border-radius:50%;background:var(--c-tertiary);color:var(--c-secondary-strong);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(47,49,53,0.22)"><i class="ph-bold ph-phone" style="font-size:26px"></i></a>
+</sc-if>
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+  <a href="tel:+381637769518" aria-label="Pozovite 063 776 9518" style="position:fixed;right:28px;bottom:28px;z-index:75;width:64px;height:64px;border-radius:32px;background:var(--c-tertiary);color:var(--c-secondary-strong);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(47,49,53,0.25);text-decoration:none" style-hover="background:var(--c-tertiary-strong);color:var(--c-secondary-strong)"><i class="ph ph-phone" style="font-size:32px"></i></a>
+</sc-if>
+
+<sc-if value="{{ showCookie }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="Kolačići" style="position:fixed;z-index:80;left:16px;right:16px;bottom:{{ cookieBottom }};max-width:560px;background:var(--c-primary);border:1px solid var(--c-line);border-radius:12px;box-shadow:0 16px 40px rgba(47,49,53,0.18);padding:20px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <h2 style="margin:0;font-size:16px;font-weight:700">Kolačići</h2>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:var(--c-muted)">Analitiku i Google mapu učitavamo samo uz Vaš pristanak. Bez pristanka sajt radi normalno. Više u <a href="#">politici privatnosti</a>.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button onClick="{{ rejectCookie }}" style="height:44px;border-radius:8px;border:1.5px solid var(--c-secondary);background:var(--c-primary);color:var(--c-text);font:inherit;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:var(--c-surface)">Odbijam</button>
+      <button onClick="{{ acceptCookie }}" style="height:44px;border-radius:8px;border:1.5px solid var(--c-secondary);background:var(--c-primary);color:var(--c-text);font:inherit;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:var(--c-surface)">Prihvatam</button>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+  <div role="status" style="position:fixed;left:50%;transform:translateX(-50%);bottom:{{ toastBottom }};z-index:85;width:min(460px,calc(100% - 24px));background:var(--c-secondary-strong);color:var(--c-on-dark);border-radius:12px;padding:10px 10px 10px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 16px 40px rgba(47,49,53,0.25)">
+    <i class="ph-bold ph-check-circle" style="font-size:22px;flex:none;color:var(--c-tertiary)"></i>
+    <span style="flex:1;min-width:0;font-size:15px;font-weight:600;line-height:1.4">{{ toastText }}</span>
+    <button onClick="{{ openCart }}" style="flex:none;height:40px;padding:0 14px;border:0;border-radius:8px;background:var(--c-tertiary);color:var(--c-secondary-strong);font:inherit;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap">Korpa</button>
+  </div>
+</sc-if>
+
+<sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCart }}" style="position:fixed;inset:0;z-index:90;background:rgba(47,49,53,0.45)"></div>
+  <aside role="dialog" aria-label="Korpa za upit" style="position:fixed;z-index:91;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--c-primary);display:flex;flex-direction:column;box-shadow:-16px 0 40px rgba(47,49,53,0.18)">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--c-line)">
+      <h2 style="margin:0;font-size:20px;font-weight:800">Korpa za upit</h2>
+      <button onClick="{{ closeCart }}" aria-label="Zatvori" style="width:44px;height:44px;border:0;border-radius:8px;background:var(--c-surface);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph ph-x" style="font-size:20px"></i></button>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 24px">
+      <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:32px 0">
+          <i class="ph ph-basket" style="font-size:40px;color:var(--c-secondary)"></i>
+          <p style="margin:0;font-size:16px;font-weight:700">Korpa za upit je prazna.</p>
+          <p style="margin:0;font-size:16px;color:var(--c-muted)">Dodajte proizvode iz kataloga opreme i pošaljite jedan upit za sve. Cene i rok isporuke šaljemo u ponudi.</p>
+          <a href="DND Oprema.dc.html" style="font-weight:700">Pogledajte opremu</a>
+        </div>
+      </sc-if>
+      <sc-for list="{{ cartRows }}" as="c" hint-placeholder-count="0">
+        <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--c-line)">
+          <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+            <span style="font-weight:600;font-size:16px;line-height:1.4">{{ c.name }}</span>
+          </span>
+          <div style="display:flex;align-items:center;border:1px solid var(--c-line-strong);border-radius:8px">
+            <button onClick="{{ c.dec }}" aria-label="Smanji količinu" style="width:36px;height:40px;border:0;background:transparent;cursor:pointer"><i class="ph ph-minus"></i></button>
+            <span style="min-width:28px;text-align:center;font-weight:700">{{ c.qty }}</span>
+            <button onClick="{{ c.inc }}" aria-label="Povećaj količinu" style="width:36px;height:40px;border:0;background:transparent;cursor:pointer"><i class="ph ph-plus"></i></button>
+          </div>
+          <button onClick="{{ c.remove }}" aria-label="Ukloni {{ c.name }}" style="width:40px;height:40px;border:0;border-radius:8px;background:transparent;cursor:pointer;color:var(--c-error)"><i class="ph ph-trash" style="font-size:20px"></i></button>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:20px 24px;border-top:1px solid var(--c-line);display:flex;flex-direction:column;gap:12px">
+      <button onClick="{{ cartToForm }}" disabled="{{ cartEmpty }}" style="width:100%;height:52px;border:0;border-radius:8px;background:var(--c-tertiary);color:var(--c-secondary-strong);font:inherit;font-weight:700;font-size:16px;cursor:pointer;opacity:{{ cartBtnOpacity }}">Pošalji upit</button>
+    </div>
+  </aside>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const DB = () => (typeof window !== 'undefined' ? window.DND_OPREMA : null);
+const SERVICES = [
+  { name: 'Bezbednost i zdravlje na radu', icon: 'ph-hard-hat' },
+  { name: 'Upravljanje otpadom', icon: 'ph-recycle' },
+  { name: 'Vanredne situacije', icon: 'ph-warning' },
+  { name: 'Zaštita lica, imovine i poslovanja', icon: 'ph-shield-check' },
+  { name: 'Hemikalije i biocidi', icon: 'ph-test-tube' },
+  { name: 'Prva pomoć', icon: 'ph-first-aid' }
+];
+class ShopBase extends DCLogic {
+  baseState() { return { w: typeof window !== 'undefined' ? window.innerWidth : 1440, menu: null, nav: false, acc: null, cartOpen: false, cart: [], cookie: 'pending', ready: !!DB(), toast: null, justAdded: null }; }
+  componentDidMount() {
+    this.onR = () => this.setState({ w: window.innerWidth });
+    this.onS = () => this.loadCart();
+    this.onDoc = e => { if (this.state.menu && !e.target.closest('[data-menu]')) this.setState({ menu: null }); };
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, nav: false, cartOpen: false, fOpen: false }); };
+    window.addEventListener('resize', this.onR);
+    window.addEventListener('storage', this.onS);
+    document.addEventListener('click', this.onDoc);
+    document.addEventListener('keydown', this.onKey);
+    let c = null; try { c = localStorage.getItem('dnd-cookie'); } catch (e) {}
+    this.setState({ cookie: c });
+    this.loadCart();
+    if (DB()) this.init();
+    else this._poll = setInterval(() => { if (DB()) { clearInterval(this._poll); this.setState({ ready: true }); this.init(); } }, 40);
+  }
+  componentWillUnmount() {
+    clearInterval(this._poll); clearTimeout(this._tt);
+    window.removeEventListener('resize', this.onR);
+    window.removeEventListener('storage', this.onS);
+    document.removeEventListener('click', this.onDoc);
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+  loadCart() { try { this.setState({ cart: JSON.parse(localStorage.getItem('dnd-upit') || '[]') }); } catch (e) {} }
+  saveCart(cart) { this.setState({ cart }); try { localStorage.setItem('dnd-upit', JSON.stringify(cart)); } catch (e) {} }
+  setCookie(v) { this.setState({ cookie: v }); try { localStorage.setItem('dnd-cookie', v); } catch (e) {} }
+  addToCart(p, qty, size) {
+    const id = 'p-' + p.id + (size ? '-' + size : ''), name = p.name + (size ? ', vel. ' + size : '');
+    const cart = this.state.cart, ex = cart.find(c => c.id === id);
+    this.saveCart(ex ? cart.map(c => c.id === id ? { ...c, qty: c.qty + qty } : c) : [...cart, { id, name, qty }]);
+    clearTimeout(this._tt);
+    this.setState({ toast: name, justAdded: p.id });
+    this._tt = setTimeout(() => this.setState({ toast: null, justAdded: null }), 2800);
+  }
+  shell(s, pageLabel) {
+    const db = DB(), isMobile = s.w < 900, fmt = db ? db.fmt : (n => n + ' RSD');
+    const equipment = db ? db.navGroups() : [];
+    const openForm = (usluga, ev) => {
+      const sec = ev && ev.currentTarget && ev.currentTarget.closest ? ev.currentTarget.closest('[data-screen-label]') : null;
+      let label = sec ? sec.getAttribute('data-screen-label').replace(/^\d+\s*/, '') : '';
+      label = !label || label === 'Heder' ? 'stranicu' : 'sekciju ' + label;
+      try { sessionStorage.setItem('dnd-return', JSON.stringify({ href: location.href.split('#')[0], y: window.scrollY, label, page: pageLabel })); } catch (e) {}
+      location.href = 'DND Upit.dc.html' + (typeof usluga === 'string' ? '?usluga=' + encodeURIComponent(usluga) : '');
+    };
+    const mobileGroups = [
+      { key: 'usluge', label: 'Usluge', href: 'DND Usluge.dc.html', items: SERVICES.map((x, i) => ({ name: x.name, icon: x.icon, href: 'DND Usluge.dc.html#usluga-' + (i + 1) })) },
+      { key: 'oprema', label: 'Oprema', href: 'DND Oprema.dc.html', items: [{ name: 'Sva oprema', icon: 'ph-squares-four', href: 'DND Oprema.dc.html' }, ...equipment.map(x => ({ name: x.name, icon: x.icon, href: x.href }))] }
+    ].map(g => ({ ...g, open: s.acc === g.key, caret: s.acc === g.key ? 'ph-caret-up' : 'ph-caret-down', toggle: () => this.setState(st => ({ acc: st.acc === g.key ? null : g.key })) }));
+    const cart = s.cart;
+    const upd = (id, fn) => this.saveCart(cart.map(c => c.id === id ? { ...c, qty: fn(c.qty) } : c));
+    const total = cart.reduce((a, c) => a + (c.price || 0) * c.qty, 0);
+    return {
+      isMobile, isDesktop: !isMobile, footPad: '0', footDesk: true, footMob: false, footNavDisp: s.w < 768 ? 'none' : 'flex', footRowOrder: '2', footCookieMob: s.w < 768 ? 'block' : 'none', footRowCols: s.w < 768 ? 'minmax(0,1fr)' : 'minmax(0,1fr) auto minmax(0,1fr)', footRowGap: s.w < 768 ? '10px' : '24px', footJsL: s.w < 768 ? 'center' : 'start', footJsR: s.w < 768 ? 'center' : 'end', footGap: s.w < 768 ? '20px' : '28px', footAlign: 'center', footTA: 'center', footColDisp: 'none', footBotJust: 'center', footBotPad: s.w < 768 ? '16px' : '20px', isPhone: s.w < 768, crumbDisplay: s.w < 768 ? 'none' : 'flex', bodyPad: '0',
+      services: SERVICES, equipment, mobileGroups,
+      opremaOpen: s.menu === 'oprema', opremaBg: s.menu === 'oprema' ? 'var(--c-surface)' : 'transparent', opremaRot: s.menu === 'oprema' ? '180deg' : '0deg',
+      hoverOprema: () => this.setState({ menu: 'oprema' }),
+      toggleOprema: () => this.setState(st => ({ menu: st.menu === 'oprema' ? null : 'oprema' })),
+      closeMenu: () => this.setState({ menu: null }),
+      navOpen: s.nav && isMobile, navIcon: s.nav ? 'ph-x' : 'ph-list',
+      toggleNav: () => this.setState(st => ({ nav: !st.nav })),
+      closeNav: () => this.setState({ nav: false }),
+      cartCount: cart.reduce((a, c) => a + c.qty, 0), hasCart: cart.length > 0, cartEmpty: cart.length === 0,
+      cartBtnOpacity: cart.length ? 1 : 0.5, cartOpen: s.cartOpen,
+      openCart: () => { clearTimeout(this._tt); this.setState({ cartOpen: true, nav: false, menu: null, toast: null }); },
+      closeCart: () => this.setState({ cartOpen: false }),
+      cartRows: cart.map(c => ({ ...c, hasPrice: !!c.price, priceLine: c.price ? fmt(c.price) + ' × ' + c.qty : '', inc: () => upd(c.id, q => q + 1), dec: () => upd(c.id, q => Math.max(1, q - 1)), remove: () => this.saveCart(cart.filter(x => x.id !== c.id)) })),
+      hasTotal: total > 0, totalLabel: fmt(total),
+      cartToForm: ev => openForm('Oprema', ev),
+      showCookie: s.cookie === null, cookieBottom: s.w < 768 ? '88px' : '24px',
+      acceptCookie: () => this.setCookie('accepted'), rejectCookie: () => this.setCookie('rejected'), reopenCookie: () => this.setState({ cookie: null }),
+      openForm: ev => openForm(undefined, ev), openFormOprema: ev => openForm('Oprema', ev),
+      toast: !!s.toast, toastText: 'Dodato u korpu: ' + (s.toast || ''), toastBottom: s.w < 768 ? '88px' : '24px'
+    };
+  }
+}
+
+class Component extends ShopBase {
+  state = { ...this.baseState(), pid: null, img: 0, qty: 1, size: null, sizeErr: false, added: false };
+  init() {
+    const db = DB(), id = new URLSearchParams(location.search).get('id');
+    const p = db.products.find(x => x.id === id) || db.products[0];
+    this.setState({ pid: p.id });
+    try { document.title = p.name + ' | Oprema | DND zaštita na radu'; } catch (e) {}
+  }
+  renderVals() {
+    const s = this.state, db = DB();
+    const sh = this.shell(s, 'Proizvod');
+    const L = { cols: s.w < 900 ? 'minmax(0,1fr)' : 'minmax(0,1.05fr) minmax(0,1fr)', galPos: s.w < 900 ? 'static' : 'sticky', desc: s.w < 900 ? 'minmax(0,1fr)' : 'minmax(0,1.2fr) minmax(0,1fr)', sim: s.w < 1000 ? 'repeat(2,minmax(0,1fr))' : 'repeat(4,minmax(0,1fr))', gap: s.w < 600 ? '28px 12px' : '40px 24px' };
+    if (!db) return { ...sh, L, crumbs: [], p: {}, card: {}, view: {}, views: [], sizes: [], specs: [], perks: [], similar: [], multiView: false, hasSizes: false };
+    const p = db.products.find(x => x.id === s.pid) || db.products[0];
+    const cat = db.categories.find(c => c.key === p.cat), sub = cat.subs.find(x => x.key === p.sub);
+    const add = (pp, q) => this.addToCart(pp, q);
+    const card = db.toCard(p, add, null);
+    const views = p.images.length ? p.images.map(src => ({ src, scale: 1 })) : [{ icon: sub.icon, scale: 1 }, { icon: sub.icon, scale: 1.9 }, { icon: 'ph-package', scale: 1 }];
+    const vi = Math.min(s.img, views.length - 1), n = views.length;
+    const st = { in: { bg: '#E6F4EC', note: 'Na stanju. Isporuka na adresu firme za 1–3 radna dana.' }, low: { bg: '#FFF5D1', note: 'Ograničena količina. Za veće porudžbine proveravamo stanje i javljamo rok isporuke.' }, order: { bg: '#F5F5F3', note: 'Po porudžbini. Isporuka za 7–10 radnih dana od potvrde.' } }[p.stock];
+    const specs = [['Šifra', p.sku], ['Kategorija', sub.name], ...Object.entries(p.attrs), ...p.specs, ...(p.sizes ? [['Veličine', p.sizes[0] + ' – ' + p.sizes[p.sizes.length - 1]]] : []), ['Jedinica mere', p.unit === 'par' ? 'Par' : 'Komad']];
+    const byPop = (a, b) => b.pop - a.pop;
+    const similar = [...db.products.filter(x => x.sub === p.sub && x.id !== p.id).sort(byPop), ...db.products.filter(x => x.cat === p.cat && x.sub !== p.sub).sort(byPop)].slice(0, 4);
+    const crumbs = [{ label: 'Početna', href: 'DND Pocetna.dc.html' }, { label: 'Oprema', href: db.listHref() }, { label: cat.name, href: db.listHref(cat.key) }, { label: sub.name, href: db.listHref(cat.key, sub.key) }];
+    const setQty = q => this.setState({ qty: Math.max(1, Math.min(999, q || 1)), added: false });
+    return {
+      ...sh, L, p, card,
+      crumbs: crumbs.map((b, i) => ({ ...b, link: true, last: false })),
+      stockBg: st.bg,
+      view: { ...views[vi], hasImg: !!views[vi].src, noImg: !views[vi].src, imgEl: views[vi].src ? React.createElement('img', { src: views[vi].src, alt: p.name, decoding: 'async', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' } }) : null },
+      views: views.map((v, i) => ({ ...v, imgEl: v.src ? React.createElement('img', { src: v.src, alt: '', loading: 'lazy', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' } }) : null, n: i + 1, hasImg: !!v.src, noImg: !v.src, scale: v.scale > 1 ? 1.5 : 1, border: i === vi ? '#2F3135' : 'transparent', current: i === vi ? 'true' : 'false', pick: () => this.setState({ img: i }) })),
+      multiView: n > 1, viewCounter: (vi + 1) + ' / ' + n,
+      prevView: () => this.setState({ img: (vi - 1 + n) % n }), nextView: () => this.setState({ img: (vi + 1) % n }),
+      hasSizes: !!p.sizes, sizeErr: s.sizeErr,
+      sizes: (p.sizes || []).map(z => { const on = s.size === z; return { label: z, on: on ? 'true' : 'false', bg: on ? '#2F3135' : '#FFFFFF', color: on ? '#FFFFFF' : '#2F3135', border: on ? '#2F3135' : (s.sizeErr ? '#B42318' : '#C9CAC6'), pick: () => this.setState({ size: z, sizeErr: false, added: false }) }; }),
+      qty: s.qty,
+      qtyDec: () => setQty(s.qty - 1), qtyInc: () => setQty(s.qty + 1),
+      setQty: e => setQty(parseInt(String(e.target.value).replace(/\D/g, ''), 10)),
+      addCart: () => { if (p.sizes && !s.size) { this.setState({ sizeErr: true }); return; } this.addToCart(p, s.qty, s.size); this.setState({ added: true, toast: null }); },
+      added: s.added, addedText: 'Dodato u korpu' + (s.size ? ', veličina ' + s.size : '') + ' × ' + s.qty,
+      perks: [{ icon: 'ph-truck', text: st.note }, { icon: 'ph-receipt', text: 'Cenu i rok isporuke šaljemo u ponudi, najčešće istog radnog dana. Atest dobijate uz isporuku gde je propisan.' }, { icon: 'ph-phone-call', text: 'Za veće količine ili hitne porudžbine pozovite 063 776 9518.' }],
+      specs: specs.map(([k, v], i) => ({ k, v, bg: i % 2 ? 'transparent' : 'var(--c-surface)' })),
+      similar: similar.map(x => db.toCard(x, add, s.justAdded)),
+      catHref: db.listHref(cat.key, sub.key), catLinkLabel: 'Sve iz kategorije ' + sub.name
+    };
+  }
+}
+</script>
+</body>
+</html>

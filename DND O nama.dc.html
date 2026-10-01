@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>O nama | DND zaštita na radu Zrenjanin</title>
+<meta name="description" content="DND zaštita na radu iz Zrenjanina od 2010. godine: licencirani tim, 300+ klijenata, bezbednost i zdravlje na radu na jednom mestu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://unpkg.com" crossorigin="anonymous">
+<style>
+html{background:#FFFFFF;scrollbar-gutter:stable;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{overflow-x:clip}
+img,video{max-width:100%}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<style>
+:root{--c-primary:#FFFFFF;--c-secondary:#4A4D52;--c-secondary-strong:#2F3135;--c-tertiary:#FFC000;--c-tertiary-strong:#E6AC00;--c-tertiary-soft:#FFF5D1;--c-surface:#F5F5F3;--c-line:#E4E4E1;--c-line-strong:#C9CAC6;--c-text:#2F3135;--c-muted:#5C5F64;--c-on-dark:#FFFFFF;--c-on-dark-muted:#D5D6D8;--c-error:#B42318;--c-error-soft:#FDECEA;--c-success:#1E7B45;--c-success-soft:#E6F4EC}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--c-primary);color:var(--c-text);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--c-secondary-strong)}
+a:hover{color:var(--c-secondary)}
+:focus-visible{outline:2px solid var(--c-secondary-strong);outline-offset:3px}
+@keyframes dndDraw{to{stroke-dashoffset:0}}
+@keyframes dndStamp{0%{opacity:0;transform:translate(0,-18px) scale(1.7) rotate(-18deg)}55%{opacity:1;transform:translate(0,0) scale(.92) rotate(-12deg)}75%{transform:scale(1.05) rotate(-12deg)}100%{opacity:1;transform:scale(1) rotate(-12deg)}}
+@keyframes dndDocIn{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes dndLine{0%{stroke-dashoffset:60}100%{stroke-dashoffset:0}}
+@keyframes dndPulseLine{0%{stroke-dashoffset:120}60%,100%{stroke-dashoffset:0}}
+@keyframes dndBeat{0%,100%{transform:scale(1)}12%{transform:scale(1.08)}24%{transform:scale(.98)}36%{transform:scale(1.05)}50%{transform:scale(1)}}
+@keyframes dndScan{0%,100%{transform:translate(0,0)}25%{transform:translate(-14px,10px)}50%{transform:translate(-4px,20px)}75%{transform:translate(-16px,26px)}}
+@keyframes dndTick{0%,40%{stroke-dashoffset:14}60%,100%{stroke-dashoffset:0}}
+@keyframes dndStarIn{0%{opacity:0;transform:scale(.3) rotate(-40deg)}70%{opacity:1;transform:scale(1.2) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes dndStarGlint{0%,82%,100%{filter:brightness(1);transform:scale(1)}88%{filter:brightness(1.35) drop-shadow(0 0 6px rgba(255,192,0,.7));transform:scale(1.18)}}
+@keyframes dndShine{0%,60%{transform:translateX(-120%) skewX(-20deg)}100%{transform:translateX(320%) skewX(-20deg)}}
+@keyframes dndPulse{0%{box-shadow:0 0 0 0 rgba(255,192,0,.55)}70%{box-shadow:0 0 0 8px rgba(255,192,0,0)}100%{box-shadow:0 0 0 0 rgba(255,192,0,0)}}
+@keyframes dndMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+
+<div lang="sr-Latn" style="min-height:100vh;background:var(--c-primary);padding-bottom:{{ bodyPad }}">
+
+<header data-screen-label="Heder" style="position:sticky;top:0;z-index:50;background:var(--c-primary);border-bottom:1px solid var(--c-line)">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);height:76px;display:flex;align-items:center;gap:28px">
+    <a href="DND Pocetna.dc.html" aria-label="DND zaštita na radu, početna" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--c-text);flex:1 1 0;min-width:max-content">
+      <img src="assets/dnd-logo-sm.png" alt="DND" width="86" height="56" decoding="async" style="height:56px;width:auto;display:block">
+      
+    </a>
+
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Glavni meni" style="display:flex;align-items:stretch;height:76px;gap:4px;flex:0 0 auto;justify-content:center">
+        <div style="display:flex;align-items:center">
+          <a href="DND Usluge.dc.html" style="display:flex;align-items:center;height:40px;padding:0 12px;border-radius:8px;font-weight:600;font-size:16px;color:var(--c-text);text-decoration:none;transition:background-color .25s ease,color .25s ease" style-hover="background:var(--c-surface)">Usluge</a>
+        </div>
+        <div data-menu="1" style="display:flex;align-items:center;align-self:center;height:40px;border-radius:8px;background:{{ opremaBg }};transition:background-color .25s ease" style-hover="background:var(--c-surface)">
+          <a href="DND Oprema.dc.html" style="display:flex;align-items:center;height:40px;padding:0 4px 0 12px;border-radius:8px;font-weight:600;font-size:16px;color:var(--c-text);transition:background-color .25s ease,color .25s ease;text-decoration:none">Oprema</a>
+          <button onClick="{{ toggleOprema }}" aria-expanded="{{ opremaOpen }}" aria-label="Prikaži kategorije opreme" style="width:32px;height:40px;padding:0 4px 0 0;border:0;border-radius:8px;background:transparent;color:var(--c-text);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph ph-caret-down" style="font-size:16px;transform:rotate({{ opremaRot }});transition:transform .25s ease"></i></button>
+          <sc-if value="{{ opremaOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:100%;left:0;right:0;background:var(--c-primary);border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);box-shadow:0 20px 40px rgba(47,49,53,0.10)">
+              <div style="max-width:1200px;margin:0 auto;padding:32px clamp(20px,4vw,32px) 36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+                <sc-for list="{{ equipment }}" as="g" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:12px">
+                    <a href="{{ g.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:var(--c-text);text-decoration:none;padding-bottom:12px;border-bottom:1px solid var(--c-line)"><i class="ph {{ g.icon }}" style="font-size:20px"></i>{{ g.name }}</a>
+                    <div style="display:flex;flex-direction:column;gap:4px">
+                      <sc-for list="{{ g.links }}" as="it" hint-placeholder-count="4">
+                        <a href="{{ it.href }}" onClick="{{ closeMenu }}" style="font-size:16px;color:var(--c-muted);text-decoration:none;line-height:1.5" style-hover="color:var(--c-text);text-decoration:underline">{{ it.name }}</a>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <a href="DND O nama.dc.html" aria-current="page" style="display:flex;align-items:center;align-self:center;height:40px;padding:0 12px;border-radius:8px;white-space:nowrap;font-weight:700;font-size:16px;color:var(--c-text);text-decoration:none;background:var(--c-surface);transition:background-color .25s ease">O nama</a>
+        <a href="DND Pocetna.dc.html#propisi" style="display:flex;align-items:center;align-self:center;height:40px;padding:0 12px;border-radius:8px;white-space:nowrap;font-weight:600;font-size:16px;color:var(--c-text);text-decoration:none;transition:background-color .25s ease,color .25s ease" style-hover="background:var(--c-surface)">Propisi</a>
+        <a href="#kontakt" style="display:flex;align-items:center;align-self:center;height:40px;padding:0 12px;border-radius:8px;white-space:nowrap;font-weight:600;font-size:16px;color:var(--c-text);text-decoration:none;transition:background-color .25s ease,color .25s ease" style-hover="background:var(--c-surface)">Kontakt</a>
+      </nav>
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:1 1 0;min-width:max-content">
+        <button onClick="{{ openCart }}" aria-label="Korpa za upit, {{ cartCount }} stavki" style="position:relative;width:44px;height:44px;border:1px solid var(--c-line);border-radius:8px;background:var(--c-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--c-text)" style-hover="border-color:var(--c-line-strong)">
+          <i class="ph ph-basket" style="font-size:20px"></i>
+          <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 4px;border-radius:8px;background:var(--c-secondary-strong);color:var(--c-on-dark);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></sc-if>
+        </button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <button onClick="{{ openCart }}" aria-label="Korpa za upit, {{ cartCount }} stavki" style="position:relative;width:44px;height:44px;border:1px solid var(--c-line);border-radius:8px;background:var(--c-primary);display:flex;align-items:center;justify-content:center;color:var(--c-text)">
+          <i class="ph ph-basket" style="font-size:20px"></i>
+          <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 4px;border-radius:8px;background:var(--c-secondary-strong);color:var(--c-on-dark);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></sc-if>
+        </button>
+        <button onClick="{{ toggleNav }}" aria-expanded="{{ navOpen }}" aria-label="Meni" style="width:44px;height:44px;border:0;border-radius:8px;background:var(--c-secondary);color:var(--c-on-dark);display:flex;align-items:center;justify-content:center"><i class="ph {{ navIcon }}" style="font-size:24px"></i></button>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeNav }}" aria-hidden="true" style="position:fixed;top:76px;left:0;right:0;bottom:0;background:rgba(47,49,53,0.4);z-index:59"></div>
+    <div style="position:fixed;top:76px;left:0;right:0;max-height:calc(100vh - 156px);max-height:calc(100dvh - 156px);background:var(--c-primary);overflow-y:auto;overscroll-behavior:contain;padding:12px 20px 20px;z-index:60;border-radius:0 0 16px 16px;box-shadow:0 16px 32px rgba(47,49,53,0.18)">
+      <nav aria-label="Mobilni meni" style="display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ mobileGroups }}" as="mg" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:60px"><a href="{{ mg.href }}" onClick="{{ closeNav }}" style="flex:1;min-width:0;display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">{{ mg.label }}</a><button onClick="{{ mg.toggle }}" aria-expanded="{{ mg.open }}" aria-label="Prikaži listu: {{ mg.label }}" style="width:44px;height:44px;border:0;border-radius:50%;background:var(--c-surface);display:flex;align-items:center;justify-content:center;flex:none;cursor:pointer;color:var(--c-text)"><i class="ph-bold {{ mg.caret }}" style="font-size:16px"></i></button></div>
+            <sc-if value="{{ mg.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;margin:4px 0 12px;padding:6px 0;border-radius:14px;background:var(--c-surface)">
+                <sc-for list="{{ mg.items }}" as="mi" hint-placeholder-count="4">
+                  <a href="{{ mi.href }}" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:46px;padding:0 16px;color:var(--c-text);text-decoration:none;font-size:16px;font-weight:600;line-height:1.3">{{ mi.name }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <a href="DND O nama.dc.html" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">O nama</a>
+        <a href="DND Pocetna.dc.html#propisi" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">Propisi</a>
+        <a href="#kontakt" onClick="{{ closeNav }}" style="display:flex;align-items:center;min-height:60px;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--c-text);text-decoration:none">Kontakt</a>
+      </nav>
+    </div>
+  </sc-if>
+</header>
+
+<main id="top">
+  <section data-screen-label="01 Brojevi" style="padding:clamp(24px,3vw,40px) 0 clamp(40px,5vw,64px)">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+      <nav aria-label="Putanja" style="display:{{ crumbDisplay }};align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--c-muted)"><a href="DND Pocetna.dc.html" style="color:var(--c-muted);text-decoration:none" style-hover="color:var(--c-text)">Početna</a><i class="ph ph-caret-right" style="font-size:16px"></i><span style="color:var(--c-text);font-weight:700">O nama</span></nav>
+      <div style="display:grid;grid-template-columns:{{ ag.stats }};gap:{{ statGap }}">
+        <sc-for list="{{ aboutStats }}" as="st" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:{{ statDir }};justify-content:flex-end;gap:8px">
+            <span style="font-size:{{ statLabelSize }};line-height:1.35;color:var(--c-muted);position:relative">{{ st.l }}</span>
+            <span style="font-weight:700;font-size:clamp(40px,5vw,60px);line-height:1;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">{{ st.n }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="02 Priča" style="padding:clamp(24px,3vw,40px) 0 clamp(48px,6vw,80px)">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:grid;grid-template-columns:{{ ag.story }};gap:40px 32px;align-items:start">
+      <div style="grid-column:{{ ag.text }};display:flex;flex-direction:column;gap:24px;padding-right:{{ ag.textPad }}">
+        <h1 style="margin:0 0 8px;font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1.15;letter-spacing:-0.02em;text-wrap:balance">Brinemo da se Vaši ljudi vrate kući zdravi</h1>
+        <p style="margin:0;font-size:clamp(16px,1.6vw,20px);line-height:1.65;color:var(--c-text);text-wrap:pretty">Počeli smo u Zrenjaninu, sa jednim ciljem: da firmama skinemo brigu o zaštiti na radu. Ne kao još jedna obaveza na papiru, već kao nešto što zaista čuva ljude.</p>
+        <p style="margin:0;font-size:clamp(16px,1.6vw,20px);line-height:1.65;color:var(--c-text);text-wrap:pretty">Iz godine u godinu slušali smo šta klijentima treba i tako izrasli u servis koji pokriva celu zaštitu u firmi, od bezbednosti na radu i koordinacije na gradilištima do protivpožarne zaštite, otpada i obuka zaposlenih.</p>
+        <p style="margin:0;font-size:clamp(16px,1.6vw,20px);line-height:1.65;color:var(--c-text);text-wrap:pretty">Danas smo tim licenciranih inženjera koji dolazi na teren, poznaje svaku firmu sa kojom radi i javlja se lično. Prvi razgovor je uvek besplatan, a cenu znate unapred.</p>
+        <button onClick="{{ toggleTeam }}" aria-expanded="{{ teamOpen }}" aria-controls="tim" style="align-self:flex-start;flex:none;white-space:nowrap;display:flex;align-items:center;gap:10px;height:52px;padding:0 22px;border:0;border-radius:8px;background:var(--c-secondary-strong);color:var(--c-on-dark);font:inherit;font-weight:700;font-size:16px;cursor:pointer;transition:background-color .25s ease" style-hover="background:var(--c-secondary)"><i class="ph-bold ph-users-three" style="font-size:20px"></i>{{ teamBtn }}<i class="ph-bold ph-caret-down" style="font-size:14px;transform:rotate({{ teamRot }});transition:transform .25s ease"></i></button>
+      </div>
+      <figure style="grid-column:{{ ag.photo }};margin:16px 16px 0;display:flex;flex-direction:column;gap:12px;position:sticky;top:100px">
+        <img ref="{{ photoRef }}" src="assets/dnd-tim.jpg" width="1000" height="668" decoding="async" fetchpriority="high" alt="Tim DND zaštite na radu u kancelariji u Zrenjaninu" style="width:100%;height:auto;aspect-ratio:1000/668;object-fit:cover;display:block;box-shadow:16px 16px 0 0 var(--c-tertiary)">
+      </figure>
+    </div>
+  </section>
+
+  <sc-if value="{{ teamOpen }}" hint-placeholder-val="{{ false }}">
+  <section id="tim" data-screen-label="02b Tim" style="padding:0 0 clamp(48px,6vw,80px);scroll-margin-top:96px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h2 style="margin:0;font-weight:800;font-size:clamp(24px,2.6vw,28px);line-height:1.2;letter-spacing:-0.02em">Naš tim</h2>
+        <p style="margin:0;font-size:16px;line-height:1.5;color:var(--c-muted)">Sedam ljudi koje ćete upoznati na terenu i na telefonu.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:clamp(28px,3vw,40px) clamp(16px,2vw,24px)">
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="aspect-ratio:4 / 5;width:100%"><img src="assets/tim-nenad-culafic.png" width="800" height="1000" loading="lazy" decoding="async" alt="Nenad Ćulafić, direktor" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:16px;display:block"></div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font-weight:800;font-size:17px;line-height:1.3">Nenad Ćulafić</h3>
+            <p style="margin:0;font-size:15px;line-height:1.45;color:var(--c-muted);text-wrap:pretty">Direktor</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="aspect-ratio:4 / 5;width:100%"><img src="assets/tim-milan-matic.png" width="800" height="1000" loading="lazy" decoding="async" alt="Milan Matić, rukovodilac za bezbednost i zdravlje na radu" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:16px;display:block"></div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font-weight:800;font-size:17px;line-height:1.3">Milan Matić</h3>
+            <p style="margin:0;font-size:15px;line-height:1.45;color:var(--c-muted);text-wrap:pretty">Rukovodilac za bezbednost i zdravlje na radu</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="aspect-ratio:4 / 5;width:100%"><div role="img" aria-label="Miloš Smiljanski, komercijalista" style="width:100%;height:100%;border-radius:16px;background:var(--c-surface);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:48px;letter-spacing:0.02em;color:var(--c-muted)">MS</div></div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font-weight:800;font-size:17px;line-height:1.3">Miloš Smiljanski</h3>
+            <p style="margin:0;font-size:15px;line-height:1.45;color:var(--c-muted);text-wrap:pretty">Komercijalista</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="aspect-ratio:4 / 5;width:100%"><img src="assets/tim-danilo-savic.png" width="800" height="1000" loading="lazy" decoding="async" alt="Danilo Savić, inženjer za BZR" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:16px;display:block"></div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font-weight:800;font-size:17px;line-height:1.3">Danilo Savić</h3>
+            <p style="margin:0;font-size:15px;line-height:1.45;color:var(--c-muted);text-wrap:pretty">Inženjer za BZR</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="aspect-ratio:4 / 5;width:100%"><img src="assets/tim-nenad-prastalo.png" width="800" height="1000" loading="lazy" decoding="async" alt="Nenad Praštalo, inženjer za BZR" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:16px;display:block"></div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font-weight:800;font-size:17px;line-height:1.3">Nenad Praštalo</h3>
+            <p style="margin:0;font-size:15px;line-height:1.45;color:var(--c-muted);text-wrap:pretty">Inženjer za BZR</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="aspect-ratio:4 / 5;width:100%"><img src="assets/tim-teodora-djordjevic.png" width="800" height="1000" loading="lazy" decoding="async" alt="Teodora Đorđević, inženjer za BZR" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:16px;display:block"></div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font-weight:800;font-size:17px;line-height:1.3">Teodora Đorđević</h3>
+            <p style="margin:0;font-size:15px;line-height:1.45;color:var(--c-muted);text-wrap:pretty">Inženjer za BZR</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="aspect-ratio:4 / 5;width:100%"><img src="assets/tim-branislav-pandurov.png" width="800" height="1000" loading="lazy" decoding="async" alt="Branislav Pandurov, inženjer za bezbednost i zdravlje na radu" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:16px;display:block"></div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font-weight:800;font-size:17px;line-height:1.3">Branislav Pandurov</h3>
+            <p style="margin:0;font-size:15px;line-height:1.45;color:var(--c-muted);text-wrap:pretty">Inženjer za bezbednost i zdravlje na radu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section data-screen-label="03 Čime se bavimo" style="padding:0 0 clamp(48px,6vw,80px)">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:grid;grid-template-columns:{{ ag.story }};gap:24px 32px;align-items:start">
+      <div style="grid-column:{{ ag.svcHead }};display:flex;flex-direction:column;gap:12px;position:{{ svcHeadPos }};top:100px">
+        <h2 style="margin:0;font-weight:800;font-size:clamp(24px,2.6vw,28px);line-height:1.2;letter-spacing:-0.02em">Sve na jednom mestu</h2>
+        <p style="margin:0;font-size:16px;line-height:1.5;color:var(--c-muted);text-wrap:pretty">Šest oblasti, jedan partner.</p>
+        <a href="DND Usluge.dc.html" style="display:flex;align-items:center;gap:8px;margin-top:4px;font-weight:700;font-size:16px;color:var(--c-text);text-decoration:none" style-hover="color:var(--c-secondary)">Saznajte više o uslugama<i class="ph-bold ph-arrow-right" style="font-size:16px"></i></a>
+      </div>
+      <div style="grid-column:{{ ag.svcList }};display:grid;grid-template-columns:{{ ag.svcCols }};gap:12px">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.href }}" style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:136px;padding:20px;border-radius:16px;background:var(--c-surface);color:var(--c-text);text-decoration:none;transition:background .2s,color .2s" style-hover="background:var(--c-secondary-strong);color:#FFFFFF">
+            <span style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+              <span style="width:44px;height:44px;flex:none;border-radius:50%;background:var(--c-tertiary);display:flex;align-items:center;justify-content:center"><i class="ph-duotone {{ s.icon }}" style="font-size:24px;color:var(--c-secondary-strong)"></i></span>
+              <i class="ph-bold ph-arrow-up-right" style="font-size:16px;opacity:.6"></i>
+            </span>
+            <span style="font-weight:700;font-size:16px;line-height:1.35;text-wrap:balance">{{ s.name }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" data-screen-label="08 Poziv na akciju" style="padding:clamp(48px,6vw,80px) 0;background:var(--c-secondary-strong);color:var(--c-on-dark)">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));align-items:center;gap:48px 64px">
+      <div style="display:flex;flex-direction:column;gap:24px;max-width:560px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-tertiary)">Besplatna konsultacija</span>
+          <h2 style="margin:0;font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1.15;letter-spacing:-0.02em;text-wrap:balance">Niste sigurni šta Vaša firma mora da ima?</h2>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:var(--c-on-dark-muted);text-wrap:pretty">Recite nam delatnost i broj zaposlenih — javljamo Vam tačno koja dokumenta, obuke i pregledi su obavezni.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="tel:+381637769518" style="height:52px;padding:0 24px;border-radius:8px;background:var(--c-tertiary);color:var(--c-secondary-strong);display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap" style-hover="background:var(--c-tertiary-strong);color:var(--c-secondary-strong)"><i class="ph-bold ph-phone" style="font-size:20px"></i>Pozovite</a>
+          <button onClick="{{ openForm }}" style="height:52px;padding:0 24px;white-space:nowrap;border-radius:8px;border:1.5px solid var(--c-on-dark);background:transparent;color:var(--c-on-dark);font:inherit;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:rgba(255,255,255,0.08)">Pošaljite upit</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;border-radius:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);overflow:hidden">
+        <a href="tel:+381637769518" style="display:flex;align-items:center;gap:16px;padding:20px 24px;color:var(--c-on-dark);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.12)" style-hover="background:rgba(255,255,255,0.04);color:var(--c-on-dark)">
+          <i class="ph-duotone ph-phone-call" style="font-size:32px;flex:none;color:var(--c-tertiary)"></i>
+          <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-size:12px;color:var(--c-on-dark-muted)">Mobilni</span><span style="font-size:20px;font-weight:700">063 776 9518</span></span>
+          <i class="ph ph-arrow-up-right" style="font-size:20px;color:var(--c-on-dark-muted)"></i>
+        </a>
+        <a href="mailto:info@dnd-znr.com" style="display:flex;align-items:center;gap:16px;padding:20px 24px;color:var(--c-on-dark);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.12)" style-hover="background:rgba(255,255,255,0.04);color:var(--c-on-dark)">
+          <i class="ph-duotone ph-envelope-open" style="font-size:32px;flex:none;color:var(--c-tertiary)"></i>
+          <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-size:12px;color:var(--c-on-dark-muted)">Email</span><span style="font-size:20px;font-weight:700">info@dnd-znr.com</span></span>
+          <i class="ph ph-arrow-up-right" style="font-size:20px;color:var(--c-on-dark-muted)"></i>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Carice+Milice+21,+Zrenjanin" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;padding:20px 24px;color:var(--c-on-dark);text-decoration:none" style-hover="background:rgba(255,255,255,0.04);color:var(--c-on-dark)">
+          <i class="ph-duotone ph-map-pin-area" style="font-size:32px;flex:none;color:var(--c-tertiary)"></i>
+          <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-size:12px;color:var(--c-on-dark-muted)">Kancelarija</span><span style="font-size:16px;font-weight:700">Carice Milice 21, Zrenjanin</span></span>
+          <i class="ph ph-arrow-up-right" style="font-size:20px;color:var(--c-on-dark-muted)"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-screen-label="11 Futer" style="background:var(--c-secondary);color:var(--c-on-dark);padding:{{ footPad }}">
+<sc-if value="{{ footDesk }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column">
+    <div style="order:{{ footRowOrder }};display:grid;grid-template-columns:{{ footRowCols }};justify-items:center;text-align:center;align-items:center;gap:{{ footRowGap }};padding:20px 0 12px;border-top:1px solid rgba(255,255,255,0.14);font-size:15px;color:var(--c-on-dark-muted)">
+      <span style="justify-self:{{ footJsL }}">© 2026 DND zaštita na radu d.o.o.</span>
+      <button onClick="{{ reopenCookie }}" style="display:{{ footCookieMob }};border:0;background:transparent;padding:4px 0;font:inherit;font-size:14px;color:var(--c-on-dark-muted);text-decoration:underline;cursor:pointer">Podešavanja kolačića</button>
+      <nav aria-label="Pravne informacije" style="display:{{ footNavDisp }};gap:24px;justify-self:center;white-space:nowrap">
+        <a href="#" style="color:var(--c-on-dark-muted);text-decoration:none" style-hover="color:var(--c-on-dark)">Politika privatnosti</a>
+        <button onClick="{{ reopenCookie }}" style="border:0;background:transparent;padding:0;font:inherit;color:var(--c-on-dark-muted);cursor:pointer" style-hover="color:var(--c-on-dark)">Podešavanja kolačića</button>
+      </nav>
+      <span style="display:{{ footNavDisp }};justify-self:{{ footJsR }}">Zrenjanin · od 2010.</span>
+    </div>
+    <div aria-hidden="true" style="height:clamp(96px,16vw,214px);overflow:hidden;display:flex;justify-content:center;user-select:none"><span style="display:block;font-weight:900;font-size:clamp(140px,24vw,320px);line-height:0.86;letter-spacing:0.01em;margin-top:8px;background:linear-gradient(180deg,rgba(255,255,255,0.42) 0%,rgba(255,255,255,0.16) 55%,rgba(255,255,255,0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent">DND</span></div>
+  </div>
+</sc-if>
+<sc-if value="{{ footMob }}" hint-placeholder-val="{{ false }}">
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:{{ footGap }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px 32px">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:{{ footAlign }};text-align:{{ footTA }}">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="background:var(--c-primary);border-radius:8px;padding:4px 8px;display:flex"><img src="assets/dnd-logo-sm.png" alt="DND" width="55" height="36" decoding="async" style="height:36px;width:auto;display:block"></span>
+          <span style="font-weight:800;font-size:16px;line-height:1.2">DND zaštita na radu</span>
+        </div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:var(--c-on-dark-muted);max-width:34ch">Licencirana agencija za bezbednost i zdravlje na radu, zaštitu životne sredine i vanredne situacije. Zrenjanin, od 2010.</p>
+      </div>
+      <div style="display:{{ footColDisp }};flex-direction:column;gap:12px">
+        <h3 style="margin:0 0 4px;font-size:16px;font-weight:700;color:var(--c-tertiary)">Usluge</h3>
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+          <a href="DND Pocetna.dc.html#usluge" style="font-size:16px;color:var(--c-on-dark);text-decoration:none;line-height:1.45" style-hover="text-decoration:underline;color:var(--c-on-dark)">{{ s.name }}</a>
+        </sc-for>
+      </div>
+      <div style="display:{{ footColDisp }};flex-direction:column;gap:12px">
+        <h3 style="margin:0 0 4px;font-size:16px;font-weight:700;color:var(--c-tertiary)">Oprema</h3>
+        <sc-for list="{{ equipment }}" as="g" hint-placeholder-count="4">
+          <a href="{{ g.href }}" style="font-size:16px;color:var(--c-on-dark);text-decoration:none;line-height:1.45" style-hover="text-decoration:underline;color:var(--c-on-dark)">{{ g.name }}</a>
+        </sc-for>
+      </div>
+      <address style="font-style:normal;display:{{ footColDisp }};flex-direction:column;gap:8px;font-size:16px;line-height:1.5">
+        <h3 style="margin:0 0 4px;font-size:16px;font-weight:700;color:var(--c-tertiary)">Kontakt</h3>
+        <span>Carice Milice 21, Zrenjanin</span>
+        <a href="tel:+381637769518" style="color:var(--c-on-dark);font-weight:700">Mob. 063 776 9518</a>
+        <a href="tel:+381233101030" style="color:var(--c-on-dark)">Tel. 023 3101030</a>
+        <a href="mailto:info@dnd-znr.com" style="color:var(--c-on-dark)">info@dnd-znr.com</a>
+        <span style="color:var(--c-on-dark-muted)">MB 20690224 · PIB 106838232</span>
+      </address>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:{{ footBotJust }};text-align:{{ footTA }};gap:12px;padding-top:{{ footBotPad }};border-top:1px solid rgba(255,255,255,0.18);font-size:16px;color:var(--c-on-dark-muted)">
+      <span>© 2026 DND zaštita na radu d.o.o.</span>
+      <div style="display:flex;gap:20px">
+        <a href="#" style="color:var(--c-on-dark)">Politika privatnosti [PLACEHOLDER]</a>
+        <button onClick="{{ reopenCookie }}" style="border:0;background:transparent;padding:0;font:inherit;color:var(--c-on-dark);text-decoration:underline;cursor:pointer">Podešavanja kolačića</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</footer>
+
+<sc-if value="{{ isPhone }}" hint-placeholder-val="{{ false }}">
+  <a href="tel:+381637769518" aria-label="Pozovite 063 776 9518" style="position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:70;width:56px;height:56px;border-radius:50%;background:var(--c-tertiary);color:var(--c-secondary-strong);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(47,49,53,0.22)"><i class="ph-bold ph-phone" style="font-size:26px"></i></a>
+</sc-if>
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+  <a href="tel:+381637769518" aria-label="Pozovite 063 776 9518" style="position:fixed;right:28px;bottom:28px;z-index:75;width:64px;height:64px;border-radius:32px;background:var(--c-tertiary);color:var(--c-secondary-strong);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(47,49,53,0.25);text-decoration:none" style-hover="background:var(--c-tertiary-strong);color:var(--c-secondary-strong)"><i class="ph ph-phone" style="font-size:32px"></i></a>
+</sc-if>
+
+<sc-if value="{{ showCookie }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="Kolačići" style="position:fixed;z-index:80;left:16px;right:16px;bottom:{{ cookieBottom }};max-width:560px;background:var(--c-primary);border:1px solid var(--c-line);border-radius:12px;box-shadow:0 16px 40px rgba(47,49,53,0.18);padding:20px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <h2 style="margin:0;font-size:16px;font-weight:700">Kolačići</h2>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:var(--c-muted)">Analitiku i Google mapu učitavamo samo uz Vaš pristanak. Bez pristanka sajt radi normalno. Više u <a href="#">politici privatnosti</a>.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button onClick="{{ rejectCookie }}" style="height:44px;border-radius:8px;border:1.5px solid var(--c-secondary);background:var(--c-primary);color:var(--c-text);font:inherit;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:var(--c-surface)">Odbijam</button>
+      <button onClick="{{ acceptCookie }}" style="height:44px;border-radius:8px;border:1.5px solid var(--c-secondary);background:var(--c-primary);color:var(--c-text);font:inherit;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:var(--c-surface)">Prihvatam</button>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCart }}" style="position:fixed;inset:0;z-index:90;background:rgba(47,49,53,0.45)"></div>
+  <aside role="dialog" aria-label="Korpa za upit" style="position:fixed;z-index:91;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--c-primary);display:flex;flex-direction:column;box-shadow:-16px 0 40px rgba(47,49,53,0.18)">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--c-line)">
+      <h2 style="margin:0;font-size:20px;font-weight:800">Korpa za upit</h2>
+      <button onClick="{{ closeCart }}" aria-label="Zatvori" style="width:44px;height:44px;border:0;border-radius:8px;background:var(--c-surface);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph ph-x" style="font-size:20px"></i></button>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 24px">
+      <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:32px 0">
+          <i class="ph ph-basket" style="font-size:40px;color:var(--c-secondary)"></i>
+          <p style="margin:0;font-size:16px;font-weight:700">Korpa za upit je prazna.</p>
+          <p style="margin:0;font-size:16px;color:var(--c-muted)">Dodajte proizvode sa stranica opreme i pošaljite jedan upit za sve. Cene i dostupnost šaljemo u ponudi.</p>
+          <a href="DND Oprema.dc.html" style="font-weight:700">Pogledajte opremu</a>
+        </div>
+      </sc-if>
+      <sc-for list="{{ cartRows }}" as="c" hint-placeholder-count="0">
+        <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--c-line)">
+          <span style="flex:1;font-weight:600;font-size:16px;line-height:1.4">{{ c.name }}</span>
+          <div style="display:flex;align-items:center;border:1px solid var(--c-line-strong);border-radius:8px">
+            <button onClick="{{ c.dec }}" aria-label="Smanji količinu" style="width:36px;height:40px;border:0;background:transparent;cursor:pointer"><i class="ph ph-minus"></i></button>
+            <span style="min-width:28px;text-align:center;font-weight:700">{{ c.qty }}</span>
+            <button onClick="{{ c.inc }}" aria-label="Povećaj količinu" style="width:36px;height:40px;border:0;background:transparent;cursor:pointer"><i class="ph ph-plus"></i></button>
+          </div>
+          <button onClick="{{ c.remove }}" aria-label="Ukloni {{ c.name }}" style="width:40px;height:40px;border:0;border-radius:8px;background:transparent;cursor:pointer;color:var(--c-error)"><i class="ph ph-trash" style="font-size:20px"></i></button>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:20px 24px;border-top:1px solid var(--c-line)">
+      <button onClick="{{ cartToForm }}" disabled="{{ cartEmpty }}" style="width:100%;height:52px;border:0;border-radius:8px;background:var(--c-tertiary);color:var(--c-secondary-strong);font:inherit;font-weight:700;font-size:16px;cursor:pointer;opacity:{{ cartBtnOpacity }}">Pošalji upit</button>
+    </div>
+  </aside>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CMP_BAD = ['Propisi se prate usput, izmene se propuste', 'Dokumentacija nepotpuna ili zastarela', 'Inspekcija dolazi nenajavljeno, nema ko da je dočeka', 'Zaposleni nisu osposobljeni i nema evidencije', 'Posle povrede niko ne zna šta prvo da uradi'];
+const CMP_GOOD = ['Licencirani stručnjaci prate svaku izmenu propisa', 'Kompletna i ažurna akta i 14 propisanih evidencija', 'Pripremamo Vas i prisustvujemo inspekcijskom nadzoru', 'Redovno osposobljavanje zaposlenih, sa zapisnicima', 'Dostupni 24/7 i na terenu širom Srbije'];
+const PROBLEMS = [
+        { num: '01', icon: 'ph-scales', title: 'Kazne', value: 'Do 1.000.000 din', text: 'Za pravno lice koje nema procenu rizika, lice za BZR ili propisane evidencije. Kaznu dobija i odgovorno lice u firmi.' },
+        { num: '02', icon: 'ph-bandaids', title: 'Povrede na radu', value: 'Trošak snosi poslodavac', text: 'Naknada zarade tokom bolovanja, troškovi lečenja i moguća odšteta ako se utvrdi da mere zaštite nisu sprovedene.' },
+        { num: '03', icon: 'ph-clipboard-text', title: 'Inspekcija', value: 'Zabrana rada', text: 'Inspektor može da naloži otklanjanje nedostataka u roku ili da zabrani rad na radnom mestu dok se opasnost ne otkloni.' }
+];
+
+const OSLUG = s => s.toLowerCase().replace(/[čć]/g, 'c').replace(/š/g, 's').replace(/ž/g, 'z').replace(/đ/g, 'dj').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+class Component extends DCLogic {
+  riskIcon(i, on) {
+    const e = React.createElement, W = 'rgba(255,255,255,.92)', Y = '#FFC000';
+    const draw = (d, delay, dur) => on ? { strokeDasharray: 1, strokeDashoffset: 1, animation: 'dndDraw ' + (dur || '.9s') + ' cubic-bezier(.65,0,.35,1) ' + delay + 's forwards' } : {};
+    const p = (k, d, stroke, delay, dur, extra) => e('path', Object.assign({ key: k, d, stroke, strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round', pathLength: 1, style: draw(d, delay, dur) }, extra || {}));
+    let kids;
+    if (i === 0) kids = [
+      p('a', 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7', W, 0),
+      p('b', 'M14 3l5 5v3M14 3v5h5', W, .2, '.6s'),
+      p('c', 'M8.5 12h4M8.5 15.5h3', W, .45, '.5s'),
+      e('circle', { key: 'd', cx: 17.5, cy: 17.5, r: 4.5, stroke: Y, strokeWidth: 1.75, pathLength: 1, style: draw(0, .6, '.7s') }),
+      p('f', 'M17.5 15.6v2.2M17.5 19.4v.01', Y, 1.05, '.35s')
+    ];
+    else if (i === 1) kids = [
+      p('a', 'M19.5 12.6 12 20l-7.5-7.4A4.6 4.6 0 0 1 12 6.9a4.6 4.6 0 0 1 7.5 5.7Z', W, 0, '1s'),
+      p('b', 'M3 13h4.2l1.8-3 3 6 2-4h7', Y, .55, '.9s')
+    ];
+    else kids = [
+      p('a', 'M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2', W, 0),
+      e('rect', { key: 'b', x: 9, y: 2.5, width: 4, height: 4, rx: 1, stroke: W, strokeWidth: 1.75, pathLength: 1, style: draw(0, .25, '.5s') }),
+      p('c', 'M8.5 13.2l2.3 2.3 4.7-4.7', Y, .6, '.6s')
+    ];
+    return e('span', { key: i + (on ? '-on-' + this.state.riskStep : '-off'), 'aria-hidden': true, style: { width: 64, height: 64, borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03))', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,.1), inset 0 1px 0 rgba(255,255,255,.08)' } },
+      e('svg', { width: 28, height: 28, viewBox: '0 0 24 24', fill: 'none', style: { display: 'block' } }, kids));
+  }
+  _cmpSet(x) {
+    const el = this._cmpBox; if (!el) return;
+    const r = el.getBoundingClientRect();
+    const p = Math.min(100, Math.max(0, ((x - r.left) / r.width) * 100));
+    this.setState({ cmpPos: Math.round(p * 10) / 10, cmpAnim: false });
+  }
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440, menu: null, nav: false, acc: null, faq: 0, cartOpen: false, cart: [], cookie: 'pending', formOpen: false, f: { ime: '', firma: '', tel: '', email: '', usluga: '', poruka: '', ok: false }, err: {}, sent: false, reduced: false, paused: false, hoverLogo: null };
+
+  componentDidMount() {
+    this.onRiskScroll = (ev) => {
+      return;
+      const el = this._riskEl; if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const span = el.offsetHeight - vh;
+      const sc = ev && ev.target && ev.target !== document && ev.target.nodeType === 1 ? ev.target : (document.scrollingElement || document.documentElement);
+      const y = sc.scrollTop, prevY = this._riskLastY == null ? y : this._riskLastY;
+      this._riskLastY = y;
+      if (this._riskNav) return;
+      if (y > prevY + 1) this._riskUp = false;
+      else if (y < prevY - 1) this._riskUp = true;
+      const pinned = r.top < -2 && r.bottom > vh - 2;
+      if (this._riskUp && pinned) {
+        this._riskLastY = y + r.top;
+        sc.scrollTo({ top: y + r.top, behavior: 'instant' });
+        return;
+      }
+      if (this._riskUp) return;
+      const p = span > 0 ? Math.min(0.999, Math.max(0, -r.top / span)) : 0;
+      const st = Math.floor(p * 3);
+      if (st !== (this.state.riskStep || 0)) this.setState({ riskStep: st });
+    };
+    const t0 = performance.now() + 250, dur = 1600;
+    const tick = (now) => {
+      const p = Math.min(1, Math.max(0, (now - t0) / dur));
+      this.setState({ cnt: 1 - Math.pow(1 - p, 3) });
+      if (p < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+    this.onR = () => this.setState({ w: window.innerWidth });
+    this.onS = () => this.loadCart();
+    this.onDoc = e => { if (this.state.menu && !e.target.closest('[data-menu]')) this.setState({ menu: null }); };
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, nav: false, cartOpen: false, formOpen: false }); };
+    window.addEventListener('resize', this.onR);
+    window.addEventListener('storage', this.onS);
+    document.addEventListener('click', this.onDoc);
+    document.addEventListener('keydown', this.onKey);
+    let c = null; try { c = localStorage.getItem('dnd-cookie'); } catch (e) {}
+    this.setState({ cookie: c, reduced: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
+    this.loadCart();
+    let ry = null; try { ry = sessionStorage.getItem('dnd-restore'); sessionStorage.removeItem('dnd-restore'); } catch (e) {}
+    if (ry != null) { const y = +ry; const go = () => window.scrollTo({ top: y, behavior: 'instant' }); requestAnimationFrame(go); setTimeout(go, 300); setTimeout(go, 900); }
+  }
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.onRiskScroll, true);
+    clearTimeout(this._riskNavT);
+    clearTimeout(this._cmpT);
+    if (this._cmpIO) this._cmpIO.disconnect();
+    window.removeEventListener('resize', this.onRiskScroll);
+    cancelAnimationFrame(this._raf);
+    window.removeEventListener('resize', this.onR);
+    window.removeEventListener('storage', this.onS);
+    document.removeEventListener('click', this.onDoc);
+    document.removeEventListener('keydown', this.onKey);
+  }
+  loadCart() { try { this.setState({ cart: JSON.parse(localStorage.getItem('dnd-upit') || '[]') }); } catch (e) {} }
+  saveCart(cart) { this.setState({ cart }); try { localStorage.setItem('dnd-upit', JSON.stringify(cart)); } catch (e) {} }
+  setCookie(v) { this.setState({ cookie: v }); try { localStorage.setItem('dnd-cookie', v); } catch (e) {} }
+
+  data() {
+    const services = [
+      { name: 'Bezbednost i zdravlje na radu', icon: 'ph-hard-hat', line: 'Lice za BZR, akt o proceni rizika, koordinacija na gradilištu', text: 'Preuzimamo ulogu lica za BZR, izrađujemo akt o proceni rizika i kompletnu dokumentaciju i koordiniramo bezbednost na gradilištima.' },
+      { name: 'Upravljanje otpadom', icon: 'ph-recycle', line: 'Odgovorno lice, plan upravljanja otpadom i evidencije', text: 'Obavljamo poslove odgovornog lica za upravljanje otpadom: plan, evidencije i dokumentaciju koju traži inspekcija.' },
+      { name: 'Vanredne situacije', icon: 'ph-warning', line: 'Procena rizika od katastrofa i plan zaštite i spasavanja', text: 'Izrađujemo procenu rizika od katastrofa i plan zaštite i spasavanja u skladu sa zakonom.' },
+      { name: 'Zaštita lica, imovine i poslovanja', icon: 'ph-shield-check', line: 'Akt o proceni rizika po standardu SRPS A.L2.002', text: 'Akt o proceni rizika po nacionalnom standardu SRPS A.L2.002, obavezan za sve koji koriste fizičko ili tehničko obezbeđenje.' },
+      { name: 'Hemikalije i biocidi', icon: 'ph-test-tube', line: 'Savetnik za hemikalije, bezbednosni listovi, dosijei biocida', text: 'Savetnik za hemikalije: Registar hemikalija, bezbednosni listovi, obeležavanje i dosijei biocidnih proizvoda.' },
+      { name: 'Prva pomoć', icon: 'ph-first-aid', line: 'Osnovna i napredna obuka zaposlenih', text: 'Osnovna i napredna obuka zaposlenih, prilagođena rizicima na Vašim radnim mestima.' }
+    ];
+    const equipment = [
+      { name: 'Lična zaštitna oprema', icon: 'ph-t-shirt', photo: 'lična zaštitna oprema', items: ['Radna i zaštitna odeća', 'Zaštitna obuća', 'Zaštitne rukavice', 'Zaštita disajnih organa', 'Zaštita očiju i lica', 'Zaštita glave', 'Zaštita sluha', 'Jednokratni program', 'Protivpadna oprema'] },
+      { name: 'Protivpožarna oprema', icon: 'ph-fire', photo: 'protivpožarni aparati i hidrantska oprema', items: ['Protivpožarni aparati', 'Protivpožarna creva', 'Hidrantska oprema'] },
+      { name: 'Bezbednosni znakovi', icon: 'ph-warning', photo: 'bezbednosni znakovi', items: ['Znakovi opasnosti', 'Znakovi obaveze', 'Znakovi zabrane', 'Opasne materije', 'Znakovi informisanja', 'Opšte informacije'] },
+      { name: 'Promotivni program', icon: 'ph-gift', photo: 'promotivni proizvodi sa štampom', items: ['Tekstil', 'Olovke', 'Kancelarija', 'Tehnologija', 'Torbe', 'Kućni setovi', 'Privesci i alati'] }
+    ];
+    return { services, equipment: equipment.map(g => ({ ...g, href: 'DND Oprema.dc.html?kat=' + OSLUG(g.name), links: g.items.map(n => ({ name: n, href: 'DND Oprema.dc.html?kat=' + OSLUG(g.name) + '&pod=' + OSLUG(n) })) })) };
+  }
+
+  marquee() {
+    const names = ['GEZE', 'Keramika Jovanović', 'Milky BGD', 'Vrška Press', 'Novares', 'Mattrade'];
+    const { reduced, paused, hoverLogo } = this.state;
+    const logos = { 'GEZE': 'assets/logo-geze.png', 'Keramika Jovanović': 'assets/logo-keramika-jovanovic.png', 'Milky BGD': 'assets/logo-milky-bgd.png', 'Vrška Press': 'assets/logo-vrska-press.png', 'Novares': 'assets/logo-novares.png', 'Mattrade': 'assets/logo-mattrade.png' };
+    const box = (n, k) => {
+      const src = logos[n], on = hoverLogo === k;
+      return React.createElement('div', {
+        key: k, onMouseEnter: () => this.setState({ hoverLogo: k }), onMouseLeave: () => this.setState({ hoverLogo: null }),
+        style: src
+          ? { flex: '0 0 auto', height: 96, padding: '0 36px', display: 'flex', alignItems: 'center', justifyContent: 'center', filter: on ? 'none' : 'grayscale(1)', opacity: on ? 1 : 0.7, transition: 'all .15s' }
+          : { flex: '0 0 auto', height: 64, padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px dashed #C9CAC6', borderRadius: 8, fontFamily: 'ui-monospace,Menlo,monospace', fontSize: 12, whiteSpace: 'nowrap', color: on ? '#2F3135' : '#5C5F64', background: on ? '#FFF5D1' : 'transparent', filter: on ? 'none' : 'grayscale(1)', transition: 'all .15s' }
+      }, src ? React.createElement('img', { src, alt: n, style: { height: 72, maxWidth: 200, width: 'auto', objectFit: 'contain', display: 'block', mixBlendMode: 'multiply' } }) : '[PLACEHOLDER: logo ' + n + ']');
+    };
+    const list = reduced ? names.map((n, i) => box(n, 'a' + i)) : [...names.map((n, i) => box(n, 'a' + i)), ...names.map((n, i) => box(n, 'b' + i))];
+    return React.createElement('div', {
+      onMouseEnter: () => this.setState({ paused: true }), onMouseLeave: () => this.setState({ paused: false }),
+      style: { display: 'flex', gap: 24, width: reduced ? 'auto' : 'max-content', flexWrap: reduced ? 'wrap' : 'nowrap', justifyContent: 'center', padding: '0 16px', animation: reduced ? 'none' : 'dndMarquee 22s linear infinite', animationPlayState: paused ? 'paused' : 'running' }
+    }, list);
+  }
+
+  renderVals() {
+    const s = this.state;
+    if (!this._fx) this._fx = {
+      stars: React.createElement('span', { key: 'st', 'aria-label': '5 od 5 zvezdica', style: { display: 'flex', gap: 2, lineHeight: 1 } },
+        [0,1,2,3,4].map(n => React.createElement('span', { key: n, 'aria-hidden': true, style: { display: 'inline-block', color: '#FFC000', fontSize: 16, opacity: 0, animation: `dndStarIn .5s cubic-bezier(.3,1.4,.5,1) ${0.3 + n * 0.12}s forwards, dndStarGlint 5s ease-in-out ${1.6 + n * 0.1}s infinite` } }, '★')))
+    };
+    const { services, equipment } = this.data();
+    const isMobile = s.w < 900;
+    const set = k => e => { const v = e.target.type === 'checkbox' ? e.target.checked : e.target.value; this.setState(st => ({ f: { ...st.f, [k]: v } })); };
+    const openForm = (usluga, ev) => {
+      const sec = ev && ev.currentTarget && ev.currentTarget.closest ? ev.currentTarget.closest('[data-screen-label]') : null;
+      let label = sec ? sec.getAttribute('data-screen-label').replace(/^\d+\s*/, '') : '';
+      if (!label || label === 'Heder') label = 'početnu'; else label = 'sekciju ' + label;
+      try { const fname = decodeURIComponent(location.pathname.split('/').pop() || ''); const page = /O nama/.test(fname) ? 'O nama' : /Usluge/.test(fname) ? 'Usluge' : 'Početna'; sessionStorage.setItem('dnd-return', JSON.stringify({ href: location.href.split('#')[0], y: window.scrollY, label, page })); } catch (e) {}
+      location.href = 'DND Upit.dc.html' + (typeof usluga === 'string' ? '?usluga=' + encodeURIComponent(usluga) : '');
+    };
+    const _oldOpenForm = (usluga) => this.setState(st => ({ formOpen: true, sent: false, err: {}, nav: false, cartOpen: false, menu: null, f: { ...st.f, usluga: typeof usluga === 'string' ? usluga : st.f.usluga } }));
+    const err = s.err;
+    const border = k => err[k] ? 'var(--c-error)' : 'var(--c-line-strong)';
+    const faqData = [
+      ['Da li moja firma mora da ima lice za bezbednost i zdravlje na radu?', 'Da, svaki poslodavac mora da imenuje lice za BZR. U pojedinim uslužnim delatnostima (trgovina na malo, ugostiteljstvo, IT, finansije, obrazovanje i dr.) poslodavac sa do 20 zaposlenih može sam da obavlja ove poslove bez stručnog ispita. U ostalim slučajevima potreban je zaposleni sa položenim stručnim ispitom ili licencirana agencija poput naše.'],
+      ['Šta je akt o proceni rizika?', 'Ključni dokument u oblasti BZR. Sadrži sistematski pregled svih opasnosti i štetnosti na svakom radnom mestu i mere za njihovo otklanjanje ili smanjenje.'],
+      ['Mogu li da naručim samo dokumentaciju, bez stalnog angažmana?', 'Da. Kompletnu dokumentaciju iz BZR izrađujemo i za firme koje ne koriste naše usluge vođenja poslova.'],
+      ['Ko mora da ima procenu rizika od katastrofa i plan zaštite i spasavanja?', 'Između ostalih: zdravstvene i obrazovne ustanove, ustanove socijalne zaštite, firme iz energetike, telekomunikacija, rudarstva i saobraćaja, kao i objekti kapaciteta preko 100 lica. Objekti za boravak dece do 14 godina imaju ovu obavezu bez obzira na kapacitet.'],
+      ['Koliko često se obnavlja obuka iz prve pomoći?', 'Na svakih pet godina.'],
+      ['Da li radite van Zrenjanina?', 'Da, radimo na teritoriji cele Srbije.']
+    ];
+    const mobileGroups = [
+      { key: 'usluge', label: 'Usluge', href: 'DND Usluge.dc.html', items: services.map((x, i) => ({ name: x.name, icon: x.icon, href: 'DND Usluge.dc.html#usluga-' + (i + 1) })) },
+      { key: 'oprema', label: 'Oprema', href: 'DND Oprema.dc.html', items: [{ name: 'Sva oprema', icon: 'ph-squares-four', href: 'DND Oprema.dc.html' }, ...equipment.map(x => ({ name: x.name, icon: x.icon, href: x.href }))] }
+    ].map(g => ({ ...g, open: s.acc === g.key, caret: s.acc === g.key ? 'ph-caret-up' : 'ph-caret-down', toggle: () => this.setState(st => ({ acc: st.acc === g.key ? null : g.key })) }));
+    const cart = s.cart;
+    const upd = (id, fn) => this.saveCart(cart.map(c => c.id === id ? { ...c, qty: fn(c.qty) } : c));
+    return {
+      stars: this._fx.stars,
+      rating: (5 * (s.cnt ?? 1)).toFixed(1).replace('.', ','),
+      firms: Math.round(300 * (s.cnt ?? 1)).toLocaleString('de-DE') + '+',
+      photoRef: this._photoRef || (this._photoRef = (el) => {
+        if (this._photoOff) { this._photoOff(); this._photoOff = null; }
+        if (!el) return;
+        let raf = 0;
+        const upd = () => {
+          raf = 0;
+          const fig = el.parentElement, grid = fig && fig.parentElement; if (!grid) return;
+          const g = grid.getBoundingClientRect(), f = fig.getBoundingClientRect();
+          const range = g.height - f.height;
+          const p = range > 0 ? Math.min(1, Math.max(0, (100 - g.top) / range)) : 0;
+          const v = (16 - 32 * p).toFixed(1);
+          el.style.boxShadow = v + 'px ' + v + 'px 0 0 var(--c-tertiary)';
+        };
+        const on = () => { if (!raf) raf = requestAnimationFrame(upd); };
+        window.addEventListener('scroll', on, { passive: true }); window.addEventListener('resize', on);
+        upd();
+        this._photoOff = () => { window.removeEventListener('scroll', on); window.removeEventListener('resize', on); if (raf) cancelAnimationFrame(raf); };
+      }),
+      isMobile, isDesktop: !isMobile, footPad: '0', footDesk: true, footMob: false, footNavDisp: s.w < 768 ? 'none' : 'flex', footRowOrder: '2', footCookieMob: s.w < 768 ? 'block' : 'none', footRowCols: s.w < 768 ? 'minmax(0,1fr)' : 'minmax(0,1fr) auto minmax(0,1fr)', footRowGap: s.w < 768 ? '10px' : '24px', footJsL: s.w < 768 ? 'center' : 'start', footJsR: s.w < 768 ? 'center' : 'end', footGap: s.w < 768 ? '20px' : '28px', footAlign: 'center', footTA: 'center', footColDisp: 'none', footBotJust: 'center', footBotPad: s.w < 768 ? '16px' : '20px', isPhone: s.w < 768, crumbDisplay: s.w < 768 ? 'none' : 'flex', svcHeadPos: s.w < 768 ? 'static' : 'sticky', statDir: s.w < 768 ? 'column-reverse' : 'column', statGap: s.w < 768 ? '28px 20px' : '24px 32px', statLabelSize: s.w < 768 ? '15px' : '16px',
+      ag: s.w < 768 ? { stats: 'repeat(2,minmax(0,1fr))', story: 'minmax(0,1fr)', text: '1 / -1', photo: '1 / -1', textPad: '0', svcHead: '1 / -1', svcList: '1 / -1', svcCols: s.w < 360 ? 'minmax(0,1fr)' : 'repeat(2,minmax(0,1fr))' } : { stats: 'repeat(4,minmax(0,1fr))', story: 'repeat(4,minmax(0,1fr))', text: '1 / span 2', photo: '3 / span 2', textPad: '0', svcHead: '1 / span 1', svcList: '2 / span 3', svcCols: 'repeat(3,minmax(0,1fr))' },
+      bodyPad: '0',
+      services: services.map((x, i) => ({ ...x, href: 'DND Usluge.dc.html#usluga-' + (i + 1) })), equipment,
+      svcRows: services.map((x, i) => { const on = (s.svc || 0) === i; return { ...x, num: String(i + 1).padStart(2, '0'), on, bg: on ? 'var(--c-surface)' : 'transparent', arrow: on ? 1 : 0, op: on ? 1 : 0, vis: on ? 'visible' : 'hidden', hidden: !on, pick: () => { if ((this.state.svc || 0) !== i) this.setState({ svc: i }); } }; }),
+      svc: { ...services[s.svc || 0], num: String((s.svc || 0) + 1).padStart(2, '0') },
+      svcAsk: (ev) => openForm(services[s.svc || 0].name, ev),
+      serviceOptions: [...services.map(x => x.name), 'Oprema', 'Ostalo'],
+      riskRef: this._riskRef || (this._riskRef = (el) => { this._riskEl = el; }),
+      cmpRef: this._cmpRefFn || (this._cmpRefFn = (el) => {
+        if (this._cmpIO) this._cmpIO.disconnect();
+        if (!el) return;
+        this._cmpIO = new IntersectionObserver((es) => {
+          if (es[0].isIntersecting && !this._cmpAuto) { this._cmpAuto = true; this._cmpT = setTimeout(() => this.setState({ cmpPos: 50, cmpAnim: true }), 400); }
+        }, { threshold: 0.4 });
+        this._cmpIO.observe(el);
+      }),
+      cmpBoxRef: this._cmpBoxFn || (this._cmpBoxFn = (el) => { this._cmpBox = el; }),
+      cmpDown: (ev) => { this._cmpAuto = true; clearTimeout(this._cmpT); this._cmpDrag = true; try { ev.currentTarget.setPointerCapture(ev.pointerId); } catch (e) {} this._cmpSet(ev.clientX); },
+      cmpMove: (ev) => { if (this._cmpDrag) this._cmpSet(ev.clientX); },
+      cmpUp: () => { this._cmpDrag = false; },
+      cmpKey: (ev) => { const p = s.cmpPos ?? 88; if (ev.key === 'ArrowLeft') { ev.preventDefault(); this.setState({ cmpPos: Math.max(0, p - 5), cmpAnim: true }); } if (ev.key === 'ArrowRight') { ev.preventDefault(); this.setState({ cmpPos: Math.min(100, p + 5), cmpAnim: true }); } },
+      cmpPosPct: (s.cmpPos ?? 88) + '%',
+      cmpTrans: s.cmpAnim ? 'clip-path 1.1s cubic-bezier(.65,0,.25,1)' : 'none',
+      cmpTransLeft: s.cmpAnim ? 'left 1.1s cubic-bezier(.65,0,.25,1)' : 'none',
+      compareRows: this._cmpRows || (this._cmpRows = CMP_BAD.map((b, i) => ({ bad: b, good: CMP_GOOD[i] }))),
+      riskPillX: ((s.riskStep || 0) * 100) + '%',
+      problemsV: PROBLEMS.map((p, i) => {
+        const st = s.riskStep || 0;
+        return { ...p, icon: this.riskIcon(i, i === st),
+          op: i === st ? 1 : 0, y: i === st ? '0px' : (i < st ? '-48px' : '48px'), hidden: i === st ? 'false' : 'true',
+          current: i === st ? 'true' : 'false', pillColor: i === st ? '#2F3135' : '#B4B7BB',
+          go: () => {
+            this.setState({ riskStep: i }); return;
+            const el = this._riskEl; if (!el) return;
+            let sc = el.parentElement; while (sc && sc !== document.body && sc.scrollHeight <= sc.clientHeight + 2) sc = sc.parentElement;
+            if (!sc || sc === document.body) sc = document.scrollingElement || document.documentElement;
+            const span = el.offsetHeight - window.innerHeight;
+            const top = sc.scrollTop + el.getBoundingClientRect().top + span * (i + 0.5) / 3;
+            this._riskNav = true; this._riskUp = false;
+            clearTimeout(this._riskNavT);
+    clearTimeout(this._cmpT);
+    if (this._cmpIO) this._cmpIO.disconnect();
+            this._riskNavT = setTimeout(() => { this._riskNav = false; this._riskLastY = null; }, 1000);
+            this.setState({ riskStep: i });
+            sc.scrollTo({ top, behavior: 'smooth' });
+          } };
+      }),
+      problems: PROBLEMS,
+      compareBad: ['Propisi se prate usput, izmene se propuste', 'Dokumentacija nepotpuna ili zastarela', 'Inspekcija dolazi nenajavljeno, nema ko da je dočeka', 'Zaposleni nisu osposobljeni i nema evidencije', 'Posle povrede niko ne zna šta prvo da uradi'],
+      compareGood: ['Licencirani stručnjaci prate svaku izmenu propisa', 'Kompletna i ažurna akta i 14 propisanih evidencija', 'Pripremamo Vas i prisustvujemo inspekcijskom nadzoru', 'Redovno osposobljavanje zaposlenih, sa zapisnicima', 'Dostupni 24/7 i na terenu širom Srbije'],
+      cases: [
+        { sector: 'Proizvodnja keramike', problem: 'Zastareo akt o proceni rizika za nove mašine.', result: 'Nov akt o proceni rizika, zaštitna oprema i obuka radnika.', client: 'Keramika Jovanović', logo: 'assets/logo-keramika-jovanovic.png' },
+        { sector: 'Prevoz putnika', problem: 'Neuređene evidencije i bez plana zaštite od požara.', result: 'Uređeno 14 evidencija i postavljen plan zaštite od požara.', client: 'Mattrade Zrenjanin', logo: 'assets/logo-mattrade.png' },
+        { sector: 'Ugostiteljstvo', problem: 'Nov objekat bez dokumentacije i obučenog osoblja.', result: 'Kompletna dokumentacija i obučeno osoblje pre otvaranja.', client: 'Milky BGD', logo: 'assets/logo-milky-bgd.png' }
+      ],
+      stats: [
+        { value: 'Do 1.000.000 din', label: 'kazna za nepoštovanje propisa' },
+        { value: '14', label: 'propisanih evidencija koje poslodavac mora da vodi' },
+        { value: '5 godina', label: 'rok za obnovu obuke iz prve pomoći' }
+      ],
+      steps: [
+        { n: '01', title: 'Besplatne konsultacije', text: 'Javite nam se i u kratkom razgovoru utvrdimo šta Vaša firma mora da ima.' },
+        { n: '02', title: 'Obilazak i procena', text: 'Upoznajemo Vaš proces rada i radna mesta na licu mesta.' },
+        { n: '03', title: 'Dokumentacija', text: 'Izrađujemo sva akta i evidencije koje propisi traže.' },
+        { n: '04', title: 'Stalna podrška', text: 'Pratimo primenu mera, obučavamo zaposlene i dostupni smo 24/7.' }
+      ],
+      why: [
+        { num: '01', key: 'Licenca', icon: 'ph-seal-check', text: 'Licencirani od strane Ministarstva za rad' },
+        { num: '02', key: 'Od 2010.', icon: 'ph-calendar-check', text: 'Više od 15 godina iskustva na tržištu' },
+        { num: '03', key: 'Tim', icon: 'ph-users-three', text: 'Multidisciplinaran tim licenciranih stručnjaka' },
+        { num: '04', key: '24/7', icon: 'ph-clock', text: 'Dostupni 24 sata dnevno' },
+        { num: '05', key: 'Cela Srbija', icon: 'ph-map-trifold', text: 'Radimo na teritoriji cele Srbije' },
+        { num: '06', key: 'Inspekcija', icon: 'ph-clipboard-text', text: 'Iskustvo u saradnji sa inspekcijskim organima' }
+      ],
+      team: [
+        { name: 'Nenad Ćulafić', role: 'Direktor' },
+        { name: 'Milan Matić', role: 'Rukovodilac za bezbednost i zdravlje na radu' },
+        { name: 'Miloš Smiljanski', role: 'Komercijalista' },
+        { name: 'Danilo Savić', role: 'Inženjer za BZR' },
+        { name: 'Nenad Praštalo', role: 'Inženjer za BZR' },
+        { name: 'Teodora Đorđević', role: 'Inženjer za BZR' }
+      ],
+      teamList: [
+        { name: 'Nenad Ćulafić', role: 'Direktor' },
+        { name: 'Milan Matić', role: 'Rukovodilac za bezbednost i zdravlje na radu' },
+        { name: 'Miloš Smiljanski', role: 'Komercijalista' },
+        { name: 'Danilo Savić', role: 'Inženjer za BZR' },
+        { name: 'Nenad Praštalo', role: 'Inženjer za BZR' },
+        { name: 'Teodora Đorđević', role: 'Inženjer za BZR' },
+        { name: 'Branislav Pandurov', role: 'Inženjer za bezbednost i zdravlje na radu' }
+      ].map(m => ({ ...m, initials: m.name.startsWith('[') ? '?' : m.name.split(' ').map(w => w[0]).join('').slice(0, 2) })),
+      teamOpen: !!s.teamOpen, teamRot: s.teamOpen ? '180deg' : '0deg',
+      teamBtn: s.teamOpen ? 'Sakrij tim' : 'Upoznajte naš tim',
+      toggleTeam: () => { const open = !this.state.teamOpen; this.setState({ teamOpen: open }); if (open) setTimeout(() => { const el = document.getElementById('tim'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' }); }, 60); },
+      isDesktopFaq: s.w >= 900,
+      faqHint: s.w >= 900 ? 'Kliknite na pitanje i odgovor će se prikazati desno.' : 'Dodirnite pitanje da vidite odgovor.',
+      faq: faqData.map(([q, a], i) => {
+        const phone = s.w < 900, cur = (s.faq ?? 0) === i;
+        return { q, a, open: cur ? 'true' : 'false', inline: phone && cur,
+          qColor: cur ? '#2F3135' : '#6E7176', qWeight: cur ? 700 : 500,
+          rowBg: cur ? '#FFFFFF' : 'transparent',
+          arrowOp: cur ? 1 : 0, arrowX: cur ? '0px' : '-6px', arrowRot: cur && phone ? '90deg' : '0deg',
+          iconBg: cur ? '#FFC000' : '#FFFFFF', iconColor: '#2F3135', rot: cur && phone ? '45deg' : '0deg',
+          op: cur ? 1 : 0, y: cur ? '0px' : '12px', hidden: cur ? 'false' : 'true', pe: cur ? 'auto' : 'none',
+          select: () => this.setState(st => ({ faq: phone && (st.faq ?? 0) === i ? -1 : i })) };
+      }),
+      aboutStats: [{ n: '2010', l: s.w < 768 ? 'Godina osnivanja' : 'Poslujemo od' }, { n: '300+', l: 'Zadovoljnih klijenata' }, { n: '10+', l: 'Zaposlenih i saradnika' }, { n: '6', l: 'Oblasti zaštite' }],
+      marquee: this.marquee(),
+      uslugeOpen: s.menu === 'usluge', opremaOpen: s.menu === 'oprema',
+      uslugeBg: s.menu === 'usluge' ? 'var(--c-surface)' : 'transparent',
+      opremaBg: s.menu === 'oprema' ? 'var(--c-surface)' : 'transparent', opremaRot: s.menu === 'oprema' ? '180deg' : '0deg',
+      hoverUsluge: () => this.setState({ menu: 'usluge' }),
+      hoverOprema: () => this.setState({ menu: 'oprema' }),
+      toggleUsluge: () => this.setState(st => ({ menu: st.menu === 'usluge' ? null : 'usluge' })),
+      toggleOprema: () => this.setState(st => ({ menu: st.menu === 'oprema' ? null : 'oprema' })),
+      closeMenu: () => this.setState({ menu: null }),
+      navOpen: s.nav && isMobile, navIcon: s.nav ? 'ph-x' : 'ph-list',
+      toggleNav: () => this.setState(st => ({ nav: !st.nav })),
+      closeNav: () => this.setState({ nav: false }),
+      mobileGroups,
+      cartCount: cart.reduce((a, c) => a + c.qty, 0), hasCart: cart.length > 0, cartEmpty: cart.length === 0,
+      cartBtnOpacity: cart.length ? 1 : 0.5,
+      cartOpen: s.cartOpen,
+      openCart: () => this.setState({ cartOpen: true, nav: false, menu: null }),
+      closeCart: () => this.setState({ cartOpen: false }),
+      cartRows: cart.map(c => ({ ...c, inc: () => upd(c.id, q => q + 1), dec: () => upd(c.id, q => Math.max(1, q - 1)), remove: () => this.saveCart(cart.filter(x => x.id !== c.id)) })),
+      cartToForm: (ev) => openForm('Oprema', ev),
+      cartNote: s.f.usluga === 'Oprema' && cart.length ? cart.map(c => c.name + ' × ' + c.qty).join(', ') : '',
+      showCookie: s.cookie === null,
+      cookieBottom: s.w < 768 ? '88px' : '24px',
+      acceptCookie: () => this.setCookie('accepted'),
+      rejectCookie: () => this.setCookie('rejected'),
+      reopenCookie: () => this.setState({ cookie: null }),
+      formOpen: s.formOpen, sent: s.sent, notSent: !s.sent,
+      openForm: (ev) => openForm(undefined, ev), openFormOprema: (ev) => openForm('Oprema', ev),
+      closeForm: () => this.setState({ formOpen: false }),
+      f: s.f,
+      e: { ...err, imeBorder: border('ime'), telBorder: border('tel'), emailBorder: border('email'), imeInvalid: !!err.ime, telInvalid: !!err.tel, emailInvalid: !!err.email },
+      setIme: set('ime'), setFirma: set('firma'), setTel: set('tel'), setEmail: set('email'), setUsluga: set('usluga'), setPoruka: set('poruka'), setOk: set('ok'),
+      submit: ev => {
+        ev.preventDefault();
+        const f = s.f, e = {};
+        if (!f.ime.trim()) e.ime = 'Unesite ime i prezime.';
+        const t = f.tel.trim();
+        if (!t) e.tel = 'Unesite broj telefona.'; else if (!/^[+\d][\d\s\/-]{5,}$/.test(t)) e.tel = 'Broj telefona nije ispravan.';
+        const m = f.email.trim();
+        if (!m) e.email = 'Unesite email adresu.'; else if (!/^\S+@\S+\.\S+$/.test(m)) e.email = 'Email adresa nije ispravna.';
+        if (!f.ok) e.ok = 'Potrebna je Vaša saglasnost za obradu podataka.';
+        this.setState({ err: e, sent: Object.keys(e).length === 0 });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
